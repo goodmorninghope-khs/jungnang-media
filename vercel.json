@@ -11,6 +11,10 @@
     {
       "source": "/feed/aa/catalog.js",
       "destination": "https://jungnang-agungi-archive.goodmorninghope.chatgpt.site/catalog.js"
+    },
+    {
+      "source": "/feed/chok/:file",
+      "destination": "https://raw.githubusercontent.com/goodmorninghope-khs/jungnang-signal/main/inbox/chok/:file"
     }
   ],
   "headers": [
