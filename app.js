@@ -161,17 +161,19 @@ function viewToday() {
   <div id="chokRadar" class="note">이 날의 GPT 촉 후보를 불러오는 중…</div>
   <h2 class="sec">계기판 <span class="en">EDITORIAL GAUGE</span></h2>
   ${gauge(pubs)}`;
-  loadChok(state.date);
+  loadChok(i === 0 ? todayKST() : state.date, i === 0 ? state.date : null);
 }
-async function loadChok(d) {
+function todayKST() { return new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10); }
+async function loadChok(d, fallback) {
   const box = document.getElementById('chokRadar'); if (!box) return;
   try {
-    const r = await fetch('/feed/chok/CHOK-' + d.replace(/-/g, '') + '.md', { cache: 'no-store' });
+    let r = await fetch('/feed/chok/CHOK-' + d.replace(/-/g, '') + '.md', { cache: 'no-store' });
+    if (!r.ok && fallback && fallback !== d) { d = fallback; r = await fetch('/feed/chok/CHOK-' + d.replace(/-/g, '') + '.md', { cache: 'no-store' }); }
     if (!r.ok) throw 0;
     const t = await r.text();
     const cands = [...t.matchAll(/^###\s*(.+)$/gm)].map(m => m[1].replace(/\*\*/g, ''));
     const urls = [...t.matchAll(/https?:\/\/[^\s)>\]]+/g)].map(m => m[0]);
-    box.innerHTML = '<b>GPT 촉 레이더 후보 ' + cands.length + '건</b> · Claude 편집국이 원문을 확인해 고릅니다.<ul style="margin:6px 0 0;padding-left:18px">' + cands.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul><span class="muted" style="font-size:12px">원문 링크 ' + urls.length + '개 · 원장: jungnang-signal/inbox/chok/CHOK-' + d.replace(/-/g, '') + '.md</span>';
+    box.innerHTML = '<b>' + fmt(d) + '(' + wd(d) + ') GPT 촉 레이더 후보 ' + cands.length + '건</b> · Claude 편집국이 원문을 확인해 고릅니다.<ul style="margin:6px 0 0;padding-left:18px">' + cands.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul><span class="muted" style="font-size:12px">원문 링크 ' + urls.length + '개 · 원장: jungnang-signal/inbox/chok/CHOK-' + d.replace(/-/g, '') + '.md</span>';
   } catch (e) { box.innerHTML = '<span class="muted">이 날의 GPT 촉 후보 파일이 없습니다(창간 기획단 운영은 2026-10-29부터).</span>'; }
 }
 window.goDate = step => { const dates = [...new Set(signal.filter(isPub).map(i => i.d).filter(Boolean))].sort().reverse(); const i = dates.indexOf(state.date) + step; if (dates[i]) { state.date = dates[i]; viewToday(); } };
