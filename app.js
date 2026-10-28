@@ -283,6 +283,7 @@ function viewRead(id) {
     <div style="margin:8px 0">${tags(it)}</div>
     ${it.desc ? `<p style="font-family:var(--serif);font-size:18px">${esc(it.desc)}</p>` : ''}
     ${it.q ? `<div class="chimbox"><b>JUNGNANG Q</b> · ${esc(it.q)}</div>` : ''}
+    ${pairOf(it.id) ? `<div class="note"><b>두 시선</b> · 같은 날 같은 지면을 다른 엔진도 냈습니다. <a href="#/fusion">융복합 통합본 「${esc(pairOf(it.id).title)}」 읽기 →</a></div>` : ''}
     ${imgs.length ? `<div class="imgs">${imgs.map(s => `<img loading="lazy" src="${esc(s)}" alt="지면" onclick="zoomImg('${esc(s)}')">`).join('')}</div>` : ''}
     <div class="body">${body || '<p class="muted">본문은 원본 지면에서 읽을 수 있습니다.</p>'}</div>
     ${vers.length ? `<h3>이전 판본 · 정정</h3>${vers.map((v, k) => `<details><summary>${esc(v.label || '판본 ' + (k + 1))}</summary><div class="body">${v.body || ''}</div></details>`).join('')}` : ''}
@@ -344,6 +345,7 @@ function viewFounding() {
     <tr><td>아궁이</td><td>궁리 정리·문서화·사실 확인, 레시피 본문</td><td><b>착상·초광폭 탐색·정책지도 시각물</b>, 월말 아궁이 레시피 그림</td><td>정책지도 묶음 정리</td></tr>
     <tr><td>국장회의 의제</td><td>WEEKLY 침 한 본으로 낸다.</td><td>「중랑 주간 정책의제 5」는 별도 발행을 멈추고 월요일 촉 후보로 보낸다.</td><td>중복 점검</td></tr>
     <tr><td>진열</td><td>드라이브 03_발행본에 완성본 저장(현행).</td><td><b>원본 제작실</b>: 기존 GPT 사이트·아아의 매일 갱신을 이어 간다.</td><td><b>창간 매체 사이트</b>: 제작실 데이터를 실시간으로 받아 촉·침·서가로 진열</td></tr>
+    <tr><td>융복합</td><td>두 시선이 갈린 판단을 '두 시선' 상자로 지면에 남긴다.</td><td>다른 판단은 GPT자문 폴더에 근거와 함께 남긴다.</td><td>월 1회 융복합 통합본</td></tr>
     <tr><td>소포</td><td>-</td><td>소상공인판 발행(현행)</td><td>-</td></tr>
     <tr><td>원장·점검</td><td>원장 기록</td><td>-</td><td>매주 월 07:30 통합 점검 리포트(비율·어조·중복·출처·원장)</td></tr>
   </table>
@@ -354,6 +356,55 @@ function viewFounding() {
   window.scrollTo(0, 0);
 }
 
+
+/* ---------- 융복합 ---------- */
+const CONV = window.CONV || { pairs: [], themes: [], lenses: {}, thesis: {}, method: [] };
+state.fuSeries = '전체';
+function pairOf(id) { return CONV.pairs.find(p => p.claude.ids.includes(id) || p.gpt.ids.includes(id)); }
+function srcLinks(ids) { return ids.map(id => { const it = signal.find(x => x.id === id); return it ? `<a href="#/read/${encodeURIComponent(id)}">「${esc(it.title)}」</a>` : ''; }).join(' '); }
+function viewFusion() {
+  setNav('fusion');
+  const SER = ['전체', ...new Set(CONV.pairs.map(p => p.series))];
+  const list = CONV.pairs.filter(p => state.fuSeries === '전체' || p.series === state.fuSeries);
+  const L = CONV.lenses;
+  $('#main').innerHTML = `
+  <h2 class="sec">융복합 <span class="en">TWO LENSES, ONE PAGE</span></h2>
+  <p class="secDesc">같은 날 같은 지면을 Claude 편집국과 GPT가 따로 낸 열한 짝을 나란히 읽고, 두 시선을 한 지면으로 합쳤습니다. 원본은 지우지 않고 그대로 이어 읽을 수 있습니다. 원장: GitHub jungnang-signal archive/convergence/2026-10.md</p>
+  <div class="qpanel" style="margin-bottom:18px"><span class="eyebrow">10월의 공통 명제</span><div class="q">${esc(CONV.thesis.head)}</div><p style="font-size:15px;opacity:.9">${esc(CONV.thesis.body)}</p></div>
+  <div class="room" style="grid-template-columns:repeat(3,1fr)">
+    <div><b>도착</b>주민에게 실제로 닿았는가</div><div><b>정정</b>틀렸을 때 어디서 고치는가</div><div><b>책임</b>누가 끝까지 맡고, 바뀐 이유를 어디에 남기는가</div>
+  </div>
+  <h2 class="sec">두 시선 <span class="en">CLAUDE × GPT</span></h2>
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    ${['claude', 'gpt'].map(k => `<div class="card"><span class="series">${esc(L[k].name)}</span><ul style="margin:4px 0 6px;padding-left:18px;font-size:14px">${L[k].strength.map(s => '<li>' + esc(s) + '</li>').join('')}</ul><p class="muted" style="font-size:13px">한계: ${esc(L[k].limit)}</p></div>`).join('')}
+  </div>
+  <div class="note"><b>융복합 원칙</b> · ${esc(L.rule)}</div>
+  <h2 class="sec">열한 짝 <span class="en">SAME SLOT, TWO EDITIONS</span></h2>
+  <div class="chips">${SER.map(s => `<button class="chip ${state.fuSeries === s ? 'on' : ''}" onclick="setF('fuSeries','${s}')">${s}</button>`).join('')}</div>
+  ${list.map(p => `<article class="card" id="${p.id}" style="margin-bottom:16px">
+    <span class="series">${esc(p.series)} ${esc(p.vol)} · ${fmt(p.date)} · 융복합</span>
+    <h4 style="font-size:21px">${esc(p.title)}</h4>
+    <div>${p.ax.map(a => `<span class="tag ax" title="${esc(AXL[a] || '')}">AX ${a}</span>`).join('')}</div>
+    <div class="grid" style="grid-template-columns:1fr 1fr;margin:8px 0">
+      <div style="border-left:4px solid var(--navy);padding-left:10px"><b style="color:var(--navy)">Claude의 시선</b><p>${esc(p.claude.view)}</p><div class="meta">원본: ${srcLinks(p.claude.ids)}</div></div>
+      <div style="border-left:4px solid var(--green);padding-left:10px"><b style="color:var(--green)">GPT의 시선</b><p>${esc(p.gpt.view)}</p><div class="meta">원본: ${srcLinks(p.gpt.ids)}</div></div>
+    </div>
+    <p><b>겹친 곳</b> · ${esc(p.overlap)}</p>
+    <p><b>갈린 곳</b> · ${esc(p.diverge)}</p>
+    <div class="chimbox"><b>융복합 침 · 중랑에 적용한다면</b><br>${esc(p.chim)}</div>
+    <div class="q">Q. ${esc(p.q)}</div>
+  </article>`).join('')}
+  <h2 class="sec">주제별 융복합 지도 <span class="en">AX2030 5대 전략</span></h2>
+  <div class="grid">${CONV.themes.map(t => `<article class="card"><span class="series">AX ${esc(t.ax)} · ${esc(t.name)}</span><h4>${esc(t.head)}</h4>
+    <p style="font-size:13px"><b style="color:var(--navy)">Claude</b> · ${t.claude.map(esc).join(' · ')}</p>
+    <p style="font-size:13px"><b style="color:var(--green)">GPT</b> · ${t.gpt.map(esc).join(' · ')}</p>
+    <p style="font-size:13px"><b style="color:var(--red)">아궁이</b> · ${t.agungi.map(esc).join(' · ')}</p>
+    <div class="chimbox" style="font-size:14px">${esc(t.fusion)}</div>
+    <div class="q">다음 걸음(제안) · ${esc(t.next)}</div></article>`).join('')}</div>
+  <h2 class="sec">앞으로의 융복합 문법 <span class="en">HOW WE MERGE</span></h2>
+  <ol>${CONV.method.map(m => '<li>' + esc(m) + '</li>').join('')}</ol>`;
+}
+
 /* ---------- 라우터 ---------- */
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
@@ -361,6 +412,7 @@ function route() {
   if (h === 'chok') return viewChok();
   if (h === 'chim') return viewChim();
   if (h === 'q') return viewQ();
+  if (h === 'fusion') return viewFusion();
   if (h === 'shelf') return viewShelf();
   if (h === 'founding') return viewFounding();
   return viewToday();
