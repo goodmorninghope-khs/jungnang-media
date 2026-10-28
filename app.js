@@ -70,7 +70,7 @@ async function loadLive() {
 }
 
 /* ---------- 공통 조각 ---------- */
-const PREVIEW = { '2026-10-29': '창간 예비호 ①', '2026-10-30': '창간 예비호 ②', '2026-10-31': '창간 예비호 ③', '2026-11-01': '창간호' };
+const PREVIEW = { '2026-10-29': '창간 예비호 ①', '2026-10-30': '창간 예비호 ②', '2026-11-02': '창간 예비호 ③', '2026-11-03': '창간 예비호 ④', '2026-11-04': '창간 예비호 ⑤', '2026-11-05': '창간 예비호 ⑥', '2026-11-06': '창간 예비호 ⑦', '2026-11-09': '창간 예비호 ⑧', '2026-11-10': '창간 예비호 ⑨', '2026-11-11': '창간호' };
 const special = it => it.series === 'MORNING' && PREVIEW[it.d] ? PREVIEW[it.d] : '';
 const seriesLabel = it => ['두부', '제작 기록', '공공AX 파일럿', 'PEOPLE'].includes(it.series) ? it.series : it.series + ' SIGNAL';
 const role = it => it.series === 'WEEKLY' ? '침' : '촉';
@@ -122,9 +122,9 @@ function viewToday() {
   const q = (lead && lead.q) || (day.find(x => x.q) || {}).q || '';
   const [ws, we] = weekRange(state.date);
   const week = pubs.filter(x => x.d >= ws && x.d <= we && !day.includes(x));
-  const before = new Date() < new Date('2026-11-01T00:00:00+09:00');
+  const before = new Date() < new Date('2026-11-11T00:00:00+09:00');
   $('#main').innerHTML = `
-  <div class="founding-banner"><div><span class="eyebrow">${before ? 'D-' + Math.ceil((new Date('2026-11-01T00:00:00+09:00') - new Date()) / 864e5) + ' · 창간 예비호 발행 중 (10/29 ①·10/30 ②·10/31 ③)' : '창간 2026.11.1'}</span><br><b>중랑정책미디어 창간호 · 2026년 11월 1일(일) MORNING Vol.28</b><br><span class="muted">시그널과 아궁이가 한 지붕 아래로. 머리는 밖에서, 처방은 중랑에 · 외부 8 : 중랑 2</span></div><a class="btn" href="#/founding">창간사와 편집헌장 읽기 →</a></div>
+  <div class="founding-banner"><div><span class="eyebrow">${before ? 'D-' + Math.ceil((new Date('2026-11-11T00:00:00+09:00') - new Date()) / 864e5) + ' · 창간 예비호 파일럿 (10/29 ① ~ 11/10 ⑨, 평일)' : '창간 2026.11.11'}</span><br><b>중랑정책미디어 창간호 · 2026년 11월 11일(수) MORNING Vol.34</b><br><span class="muted">시그널과 아궁이가 한 지붕 아래로. 머리는 밖에서, 처방은 중랑에 · 외부 8 : 중랑 2</span></div><a class="btn" href="#/founding">창간사와 편집헌장 읽기 →</a></div>
   <div class="edition">
     <button ${i >= dates.length - 1 ? 'disabled' : ''} onclick="goDate(1)">← 이전 판</button>
     <div class="mid"><span class="eyebrow">TODAY'S EDITION</span><b>${fmt(state.date)} (${wd(state.date)}) 판</b><span class="meta">${day.length}개 발행 기록 · ${live.signal ? '제작실 실시간 연동' : '10/28 스냅샷'}</span></div>
@@ -313,17 +313,17 @@ function viewRead(id) {
 function viewFounding() {
   setNav('founding');
   $('#main').innerHTML = `
-  <span class="eyebrow">창간호 · 2026년 11월 1일(일) · MORNING Vol.28</span>
+  <span class="eyebrow">창간호 · 2026년 11월 11일(수) · MORNING Vol.34 · 예비호 ①~⑨ 파일럿 뒤</span>
   <h2 class="sec" style="font-size:34px;margin-top:6px">밖을 읽어야 안이 건강해진다</h2>
   <div class="essay">
     <p>JUNGNANG SIGNAL은 2026년 9월, "외부의 변화를 신호와 잡음으로 구분하는 중랑 정책 미디어"로 시작했습니다. 아궁이는 그보다 먼저, 아침마다 궁리한 질문을 한 장의 정책지도로 굽는 부엌이었습니다. 두 달 동안 MORNING 24호, WEEKLY 4호, WEEKLY AX 3호, 두부 3호, 그리고 59장의 정책지도와 27개의 궁리가 쌓였습니다.</p>
     <p>오늘 둘을 한 지붕 아래로 모아 <b>중랑정책미디어</b>를 엽니다. 약속은 하나입니다. <b>밖에서의 촉이, 중랑을 건강하게 하는 침으로.</b> 머리기사는 밖에서 고릅니다. 국내외 연구보고서, 정부 원문, 다른 도시와 다른 나라의 실행이 우리의 재료입니다. 중랑은 그 끝에서, "중랑에 적용한다면"이라는 제안으로 등장합니다.</p>
     <p>우리는 중랑을 감시하는 신문이 아니라, 중랑에 처방을 건네는 동료가 되려 합니다. 읽는 동료에게 숙제가 아니라 영감이 되도록, 덜 내고 더 읽히게 만들겠습니다. 중랑은 답을 공유하기보다 프롬프트를 공유하는 물음공동체입니다. 매 호 끝에 질문 하나를 남기는 이유입니다.</p>
-    <p>호수는 이어 갑니다. 지난 두 달의 실험이 이 매체의 뿌리이기 때문입니다. MORNING은 Vol.28로 창간호를 내고, 11월 2일부터 평일 아침마다 찾아갑니다. 새로운 연결, 다른 경험.</p>
+    <p>호수는 이어 갑니다. 지난 두 달의 실험이 이 매체의 뿌리이기 때문입니다. 10월 29일부터 아홉 번의 예비호로 손을 맞춘 뒤, MORNING은 Vol.34로 창간호를 내고 평일 아침마다 찾아갑니다. 새로운 연결, 다른 경험.</p>
     <p class="muted" style="font-size:15px">중랑정책주방(정책실) · 창간사 초안(발행인 확정 전)</p>
   </div>
 
-  <h2 class="sec">촉침 편집헌장 v1 <span class="en">2026.11.1 시행 · 두 엔진 공통</span></h2>
+  <h2 class="sec">촉침 편집헌장 v1 <span class="en">2026.10.29 파일럿 적용 · 11.11 창간 · 두 엔진 공통</span></h2>
   <ol class="charter">
     <li><b>머리는 밖에서.</b> 머리기사와 1면 신호는 국내외 연구보고서, 정부 원문, 해외·다른 도시 실행 사례에서 고른다. 중랑 현안을 머리로 올리지 않는다.</li>
     <li><b>외부 8 : 중랑 2.</b> 한 호 신호는 2~3개(해외 1, 국내 연구·정부 1, 다른 도시 현장 1). 중랑은 각 신호 끝 "중랑에 적용한다면" 단락에서 이름으로 등장한다.</li>
@@ -339,7 +339,7 @@ function viewFounding() {
 
   <h2 class="sec">발행 리듬 <span class="en">내부 독자 주 8~9건</span></h2>
   <table class="t cal"><tr><th></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토·일</th></tr>
-    <tr><th>06:00</th><td></td><td><span class="cell c4">두부 (넷째 주 PEOPLE)</span></td><td></td><td></td><td></td><td rowspan="3" class="muted">휴간<br>(창간호 11/1 일요일만 예외)</td></tr>
+    <tr><th>06:00</th><td></td><td><span class="cell c4">두부 (넷째 주 PEOPLE)</span></td><td></td><td></td><td></td><td rowspan="3" class="muted">휴간<br>(10/31부터)</td></tr>
     <tr><th>07:00</th><td><span class="cell c1">MORNING</span></td><td><span class="cell c1">MORNING</span></td><td><span class="cell c1">MORNING</span></td><td><span class="cell c1">MORNING</span></td><td><span class="cell c1">MORNING</span></td></tr>
     <tr><th>08:00~09:00</th><td><span class="cell c5">WEEKLY AX</span></td><td></td><td><span class="cell c2">WEEKLY 침 (국장회의)</span></td><td></td><td><span class="cell c3">격주 ISSUE · 월말 아궁이 레시피</span></td></tr>
   </table>
@@ -347,10 +347,10 @@ function viewFounding() {
 
   <h2 class="sec">Vol. 체계 <span class="en">전통을 잇는 호수</span></h2>
   <table class="t"><tr><th>시리즈</th><th>지난 호</th><th>다음 호</th><th>창간 뒤 첫 호</th></tr>
-    <tr><td>MORNING</td><td>Vol.24 (10/28 수)</td><td>Vol.25 (10/29) · 26 (10/30) · 27 (10/31)</td><td><b>Vol.28 = 창간호 (11/1 일)</b> → Vol.29 (11/2 월)부터 평일</td></tr>
-    <tr><td>WEEKLY AX</td><td>Vol.3 (10/26 월)</td><td colspan="2">Vol.4 (11/2 월)</td></tr>
-    <tr><td>두부</td><td>Vol.3 (10/27 화)</td><td colspan="2">Vol.4 (11/3 화) · 넷째 주(11/24)는 PEOPLE</td></tr>
-    <tr><td>WEEKLY 침</td><td>Vol.4 (10/28 수)</td><td colspan="2">Vol.5 (11/4 수)</td></tr>
+    <tr><td>MORNING</td><td>Vol.24 (10/28 수)</td><td>예비호 ① Vol.25 (10/29) · ② 26 (10/30) · ③ 27 (11/2) · ④ 28 · ⑤ 29 · ⑥ 30 · ⑦ 31 · ⑧ 32 (11/9) · ⑨ 33 (11/10)</td><td><b>Vol.34 = 창간호 (11/11 수)</b>, 이후 평일</td></tr>
+    <tr><td>WEEKLY AX</td><td>Vol.3 (10/26 월)</td><td colspan="2">Vol.4 (11/2) · Vol.5 (11/9)</td></tr>
+    <tr><td>두부</td><td>Vol.3 (10/27 화)</td><td colspan="2">Vol.4 (11/3) · Vol.5 (11/10) · 넷째 주(11/24)는 PEOPLE</td></tr>
+    <tr><td>WEEKLY 침</td><td>Vol.4 (10/28 수)</td><td colspan="2">Vol.5 (11/4, '이번 주 침' 첫 호) · <b>Vol.6 창간 특집 (11/11)</b></td></tr>
     <tr><td>ISSUE · 아궁이 레시피</td><td>수시</td><td colspan="2">ISSUE 격주 금 (11/13 첫 회) · 레시피 11/27(금)</td></tr>
   </table>
 
