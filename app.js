@@ -446,6 +446,8 @@ window.addEventListener('hashchange', () => { route(); if (!location.hash.includ
   $('#todayLabel').textContent = now.toLocaleDateString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
   signal = enrich(SNAP.signal || []); aa = SNAP.aa || [];
   route();
+  const autoDate = state.date;
   await loadLive();
+  if (live.signal && state.date === autoDate) state.date = null; // 실시간 데이터가 오면 최신 판으로
   if (live.signal || live.aa) route();
 })();
