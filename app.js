@@ -63,6 +63,17 @@ async function loadLive() {
     const r = await fetch('/feed/signal.json', { cache: 'no-store' });
     if (r.ok) { const j = await r.json(); if (Array.isArray(j) && j.length) { signal = enrich(j); live.signal = true; } }
   } catch (e) { }
+  /* 편집국 직송판: Claude 편집국이 새벽에 올린 판(data/editions.json)을 제작실 반영 전에 먼저 진열한다. 같은 지면·날짜가 제작실에 들어오면 제작실 판을 쓴다. */
+  try {
+    const r = await fetch('/data/editions.json', { cache: 'no-store' });
+    if (r.ok) {
+      const j = await r.json(); const desk = Array.isArray(j) ? j : (j.items || []);
+      const key = it => (it.series || '') + '|' + nd(it.date);
+      const have = new Set(signal.map(key));
+      const add = desk.filter(it => it && it.series && it.date && !have.has(key(it)));
+      if (add.length) { signal = enrich(add).concat(signal).sort((a, b) => (b.d || '0').localeCompare(a.d || '0')); live.signal = true; live.desk = add.length; }
+    }
+  } catch (e) { }
   try {
     const r = await fetch('/feed/aa/catalog.js', { cache: 'no-store' });
     if (r.ok) { const t = await r.text(); const m = t.match(/const records\s*=\s*(\[[\s\S]*?\]);\s*(?:const|let|var|function|window|$)/); if (m) { const j = JSON.parse(m[1]); if (j.length) { aa = j; live.aa = true; } } }
