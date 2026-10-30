@@ -212,3 +212,11 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid 
 .body p.k-chim{border-left:3px solid #e9b8ab;padding-left:10px}
 .credit{font-size:12px;color:var(--muted);margin:6px 0 2px;line-height:1.6}
 .credit a{color:inherit;text-decoration:underline}
+
+/* 쌍둥이 매체 · 중랑브리핑 */
+.twincols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.twinlbl{display:block;font-size:12px;letter-spacing:1px;color:var(--red);margin:2px 0 4px}
+.twincols>div:last-child .twinlbl{color:#006939}
+.twinbox{border-top:3px solid #006939;margin-top:26px;padding-top:4px}
+.nav a.twinlink{color:#006939;font-weight:700}
+@media (max-width:900px){.twincols{grid-template-columns:1fr}}
