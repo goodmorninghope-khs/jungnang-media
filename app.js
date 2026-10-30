@@ -10,6 +10,7 @@ const AXL = SNAP.ledger.ax2030_legend || {};
 const LOCAL_RE = /중랑|면목|상봉|망우|사가정|묵동|신내|중화동|용마|먹골/;
 
 let signal = [], aa = [], ledger = SNAP.ledger.items || [], live = { signal: false, aa: false };
+let PMAP = { items: [] }, TRACE = { stages: [], items: [] }, CORR = { items: [] }; // 공약 서가 · 침의 행방 · 정정 대장 (data/)
 const state = { date: null, chokSeries: '전체', chokSrc: '전체', chokQ: '', qAx: '전체', shelfSeries: '전체', shelfQ: '' };
 
 const $ = s => document.querySelector(s);
@@ -90,6 +91,9 @@ async function loadLive() {
       if (add.length) { signal = enrich(add).concat(signal).sort((a, b) => (b.d || '0').localeCompare(a.d || '0')); live.signal = true; live.desk = add.length; }
     }
   } catch (e) { }
+  for (const [f, set] of [['pledge-map', v => PMAP = v], ['chim-trace', v => TRACE = v], ['corrections', v => CORR = v]]) {
+    try { const r = await fetch('/data/' + f + '.json', { cache: 'no-store' }); if (r.ok) set(await r.json()); } catch (e) { }
+  }
   try {
     const r = await fetch('/feed/aa/catalog.js', { cache: 'no-store' });
     if (r.ok) { const t = await r.text(); const m = t.match(/const records\s*=\s*(\[[\s\S]*?\]);\s*(?:const|let|var|function|window|$)/); if (m) { const j = JSON.parse(m[1]); if (j.length) { aa = j; live.aa = true; } } }
@@ -109,13 +113,20 @@ function tags(it, opt = {}) {
   for (const a of it.ax) h += `<span class="tag ax" title="${esc(AXL[a] || '')}">AX ${a}</span>`;
   return h;
 }
+function corrOf(it) {
+  const ids = new Set([it.id, ...Object.keys(window.DESK_ALIAS || {}).filter(k => window.DESK_ALIAS[k] === it.id)]);
+  const rows = (CORR.items || []).filter(c => ids.has(c.edition_id));
+  const has = rows.length || (it.versions || []).some(v => v && (v.body || v.label)) || /정정/.test(it.edition || '');
+  return { has, rows };
+}
+const corrBadge = it => corrOf(it).has ? '<span class="tag corr" title="정정·보탬 기록이 있는 판입니다. 처음 판은 이전 판본으로 보존합니다">정정</span>' : '';
 function card(it) {
   return `<article class="card">
     ${it.img ? `<a href="#/read/${encodeURIComponent(it.id)}"><img loading="lazy" src="${esc(it.img)}" alt=""></a>` : ''}
     <span class="series">${esc(seriesLabel(it))}${it.vol ? ' · ' + it.vol : ''}${special(it) ? ' · ' + special(it) : ''} · ${role(it)}</span>
     <h4><a href="#/read/${encodeURIComponent(it.id)}">${esc(it.title)}</a></h4>
     <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ')' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}</div>
-    <div>${tags(it)}</div>
+    <div>${tags(it)}${corrBadge(it)}</div>
     ${it.desc ? `<p>${esc(it.desc)}</p>` : ''}
     ${it.q ? `<div class="q">Q. ${esc(it.q)}</div>` : ''}
   </article>`;
@@ -138,6 +149,7 @@ function gauge(list) {
     <span class="muted" style="font-size:12px">제목에 중랑 지명이 들어간 호를 '중랑 현안'으로 셉니다. 통합 데스크가 매주 점검합니다.</span></div>`;
 }
 function oneMinute(it) {
+  if (it && Array.isArray(it.minute) && it.minute.length) return it.minute.map(l => `<p>${esc(l)}</p>`).join('');
   const b = String((it && it.body) || '');
   const m = b.match(/<div class="note">([\s\S]*?)<\/div>/) || b.match(/<p>(?:<b>)?\s*1분 읽기[\s\S]*?<\/p>(?:\s*<p>[\s\S]*?<\/p>){0,3}/);
   if (!m) return '';
@@ -228,6 +240,8 @@ function viewDesk() {
   <div id="chokRadar" class="note">GPT 촉 후보를 불러오는 중…</div>
   <h2 class="sec">출처 지도 <span class="en">WHERE SIGNALS CAME FROM</span></h2>
   ${srcMap(pubs)}
+  <h2 class="sec">정정 대장 <span class="en">CORRECTIONS</span></h2>
+  ${corrLedger()}
   <h2 class="sec">하루 운영 <span class="en">DAILY LOOP</span></h2>
   <ol class="loop"><li><b>전날 17:30</b> GPT 촉 레이더가 다음 발행일 후보 4개를 올립니다(공약에 닿는 소식, 원문 링크).</li><li><b>04:30</b> Claude 편집국이 MORNING을 씁니다(월·화·수 주간 지면 05:20). 먼저 발행하고, 후속은 나중에.</li><li><b>06:20</b> 통합 데스크가 사이트에 진열하고 점검합니다. 목표는 07:00 전 새 판.</li><li><b>오전</b> 사후 사실 확인·정정·기록. 정정은 이전 판을 남긴 채 표시합니다.</li></ol>
   <h2 class="sec">함께 보는 문서 <span class="en">REFERENCES</span></h2>
@@ -303,7 +317,7 @@ function viewChim() {
   const weeklies = signal.filter(x => x.series === 'WEEKLY');
   const gung = ledger.filter(x => x.series === '아궁이(궁리)').sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   const fam = families();
-  $('#main').innerHTML = `
+  $('#main').innerHTML = `${chimTabs('chim')}
   <h2 class="sec">침 · 아궁이 <span class="en">INSIDE OUT</span></h2>
   <p class="secDesc">밖에서 얻은 촉을 중랑의 처방으로 바꾸는 방입니다. 아아(아궁이 아카이브)가 이 방으로 들어왔습니다. 침은 편집국의 의견이며, 행정의 결정이 아닙니다.</p>
   <div class="flow"><div class="f1"><b>촉 · 觸</b>밖에서 무엇이 바뀌었나</div><div class="f2"><b>읽기</b>왜 의미 있나</div><div class="f3"><b>침 · 鍼</b>중랑에 적용한다면</div><div class="f4"><b>질문</b>오늘의 중랑 Q</div></div>
@@ -362,7 +376,11 @@ function viewRead(id, anc) {
   if (!it) { $('#main').innerHTML = '<p>기록을 찾지 못했습니다. <a href="#/shelf">서가로</a></p>'; return; }
   const body = String(it.body || '').replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
   let sn = 0;
-  const bodyA = body.replace(/<h3(?![^>]*\bid=)([^>]*)>/g, (m, rest) => '<h3 id="s' + (++sn) + '"' + rest + '>');
+  const bodyA = body.replace(/<h3(?![^>]*\bid=)([^>]*)>([\s\S]*?)<\/h3>/g, (m, rest, inner) => { const n = ++sn; return '<h3 id="s' + n + '"' + rest + '>' + inner + (/JUNGNANG Q|^\s*마감\s*$/.test(inner.replace(/<[^>]+>/g, '')) ? '' : ` <button class="copy3" onclick="copySig(${n})" title="신호 제목·촉·침·출처·주소를 세 줄로 복사합니다">세 줄 복사</button>`) + '</h3>'; });
+  const one = oneMinute(it);
+  const sigs = Array.isArray(it.signals) ? it.signals : [];
+  const co = corrOf(it);
+  window.__readIt = it;
   const imgs = (it.images || []).map(p => abs(PM, p));
   const vers = (it.versions || []).filter(v => v && (v.body || v.label));
   const rel = signal.filter(x => x !== it && isPub(x) && x.ax.some(a => it.ax.includes(a))).slice(0, 4);
@@ -372,13 +390,16 @@ function viewRead(id, anc) {
     <span class="eyebrow">${esc(seriesLabel(it))}${it.vol ? ' · ' + it.vol : ''}${special(it) ? ' · ' + special(it) : ''} · ${role(it)}</span>
     <h1>${esc(it.title)}</h1>
     <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ') 발행' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}${it.edition ? ' · ' + esc(it.edition) : ''}</div>
-    <div style="margin:8px 0">${tags(it)}</div>
+    <div style="margin:8px 0">${tags(it)}${corrBadge(it)}</div>
+    ${one ? `<div class="oneminute"><span class="eyebrow">1분 읽기</span>${one}</div>` : ''}
     ${it.desc ? `<p style="font-family:var(--serif);font-size:18px">${esc(it.desc)}</p>` : ''}
     ${it.q ? `<div class="chimbox"><b>JUNGNANG Q</b> · ${esc(it.q)}</div>` : ''}
     ${pairOf(it.id) ? `<div class="note"><b>두 시선</b> · 같은 날 같은 지면을 다른 엔진도 냈습니다. <a href="#/fusion">융복합 통합본 「${esc(pairOf(it.id).title)}」 읽기 →</a></div>` : ''}
     ${imgs.length ? `<div class="readtoggle" role="group" aria-label="읽는 방식"><button class="on" onclick="readMode('text')">텍스트 읽기</button><button onclick="readMode('page')">지면 보기</button></div>` : ''}
     <div class="body" id="readBody">${bodyA || '<p class="muted">본문은 원본 지면에서 읽을 수 있습니다.</p>'}</div>
     ${imgs.length ? `<details class="pagebox" id="pageBox"${window.innerWidth >= 900 ? ' open' : ''}><summary>지면 이미지 보기 (${imgs.length}장)</summary><div class="imgs">${imgs.map(s => `<img loading="lazy" src="${esc(s)}" alt="지면" onclick="zoomImg('${esc(s)}')">`).join('')}</div></details>` : ''}
+    ${sigs.length ? `<div class="sigtail"><span class="eyebrow">신호별 근거</span><ol>${sigs.map(s => `<li><a href="#/read/${encodeURIComponent(it.id)}/${esc(s.id || '')}">${esc(s.title || s.id || '')}</a>${s.pledge ? ` <span class="tag pl">${esc(s.pledge)}</span>` : ''}${s.src_type ? ` <span class="tag">${esc(s.src_type)}</span>` : ''}${s.link_type ? ` <span class="muted">· ${esc(s.link_type)}</span>` : ''}${s.url ? ` · <a target="_blank" rel="noopener" href="${esc(s.url)}">원문</a>` : ''}${s.published ? ` <span class="muted">(발표 ${esc(s.published)})</span>` : ''}</li>`).join('')}</ol></div>` : ''}
+    ${co.rows.length ? `<div class="note"><b>정정·보탬 기록</b><ul>${co.rows.map(c => `<li>[${esc(c.kind)}] ${esc(c.what || '')} → ${esc(c.how || '')} · 왜: ${esc(c.why || '')} · 언제: ${esc(c.when || c.date || '')}</li>`).join('')}</ul></div>` : ''}
     ${vers.length ? `<h3>이전 판본 · 정정</h3>${vers.map((v, k) => `<details><summary>${esc(v.label || '판본 ' + (k + 1))}</summary><div class="body">${v.body || ''}</div></details>`).join('')}` : ''}
     <p style="margin-top:16px">${orig}</p>
     ${rel.length ? `<div class="related"><span class="eyebrow">같은 AX2030 전략으로 이어 읽기</span><div class="grid" style="margin-top:10px">${rel.map(card).join('')}</div></div>` : ''}
@@ -386,6 +407,26 @@ function viewRead(id, anc) {
   const target = anc && document.getElementById(anc);
   if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
 }
+window.copySig = n => {
+  const it = window.__readIt; const h = document.getElementById('s' + n); if (!it || !h) return;
+  const title = h.textContent.replace('세 줄 복사', '').trim();
+  let chok = '', chim = '', src = '';
+  for (let el = h.nextElementSibling; el && !/^H[23]$/.test(el.tagName); el = el.nextElementSibling) {
+    const t = el.textContent.replace(/\s+/g, ' ').trim();
+    if (!chok && /^(촉|<b>촉)/.test(t.replace(/^\s+/, ''))) chok = t.replace(/^촉\s*[:：]?\s*/, '').split(/(?<=[.다])\s/)[0];
+    else if (!chok && el.tagName === 'H4') chok = t;
+    if (!chim && /중랑에 적용한다면|^침/.test(t)) chim = t.replace(/^(중랑에 적용한다면[^:：]*[:：]|침[^:：]*[:：]?)\s*/, '');
+    if (!src && /^(원문|출처)/.test(t)) src = t;
+    const a = el.querySelector && el.querySelector('a[href^="http"]'); if (!src && a) src = '원문: ' + a.href;
+  }
+  const sg = (it.signals || [])[n - 1];
+  if (sg && sg.url) src = '원문: ' + sg.url;
+  const url = location.origin + '/#/read/' + encodeURIComponent(it.id) + '/s' + n;
+  const text = [title, chok && '촉 · ' + chok, chim && '침 · ' + chim + ' (편집국 의견)', src, url].filter(Boolean).join('\n');
+  const done = () => { const b = h.querySelector('.copy3'); if (b) { b.textContent = '복사했습니다'; setTimeout(() => b.textContent = '세 줄 복사', 1600); } };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => { prompt('복사해 쓰세요', text); });
+  else prompt('복사해 쓰세요', text);
+};
 window.readMode = m => {
   document.querySelectorAll('.readtoggle button').forEach((b, k) => b.classList.toggle('on', (k === 0) === (m === 'text')));
   if (m === 'page') { const d = document.getElementById('pageBox'); if (d) { d.open = true; d.scrollIntoView({ behavior: 'smooth' }); } }
@@ -510,6 +551,61 @@ function viewFusion() {
   <ol>${CONV.method.map(m => '<li>' + esc(m) + '</li>').join('')}</ol>`;
 }
 
+/* ---------- 공약 서가 ---------- */
+const PLEDGE_FULL = ['희망찬 미래 교육도시', '성장동력을 키우는 경제 및 도시개발', '서울 동북권 교통거점 도시', '신속하고 확실한 주거환경 개선', '모두가 함께 즐기는 문화중랑', '더불어 따뜻한 복지중랑', '전국최고 걷기 좋은 도시'];
+function viewPledge() {
+  setNav('pledge');
+  const byId = new Map(signal.map(x => [x.id, x]));
+  const groups = PLEDGE.map(() => []); const axG = [];
+  const seen = new Set();
+  const place = (it, list, first) => { list.forEach(p => { const k = typeof p === 'number' ? p : ('①②③④⑤⑥⑦'.indexOf(p) + 1) || (PLEDGE.findIndex(v => String(p).includes(v.split('·')[0])) + 1); if (k >= 1) groups[k - 1].push({ it, first }); }); };
+  for (const m of (PMAP.items || [])) {
+    const it = byId.get(m.id) || { id: m.id, title: m.title, d: nd(m.date), series: m.series, src: [], ax: [], pl: [] };
+    seen.add(it.id); place(it, (m.pledges || []).filter(p => p !== 'AX'), !m.confirmed);
+    if ((m.pledges || []).includes('AX')) axG.push({ it, first: !m.confirmed });
+  }
+  for (const it of signal.filter(isPub)) if (!seen.has(it.id) && it.pl && it.pl.length) place(it, it.pl, false);
+  const mini = g => `<li><a href="#/read/${encodeURIComponent(g.it.id)}">${esc(g.it.title)}</a> <span class="muted">${g.it.d ? fmt(g.it.d) : ''} · ${esc(g.it.series || '')}</span>${g.first ? ' <span class="tag first" title="GPT 외부고문 1차 분류, 편집국 확인 전">1차 분류</span>' : ''}</li>`;
+  const sortD = a => a.sort((x, y) => (y.it.d || '').localeCompare(x.it.d || ''));
+  $('#main').innerHTML = `
+  <h2 class="sec">공약 서가 <span class="en">PLEDGE SHELF · 민선9기 7대 비전</span></h2>
+  <p class="secDesc">지면이 어느 공약과 이어지는지 모아 보는 서가입니다. 공약의 이행을 판정하지 않습니다. 10월 분류는 GPT 외부고문 1차 분류이며 편집국 확인 전입니다. 11월 2일 판부터는 지면의 '닿는 공약' 표시를 그대로 씁니다.</p>
+  <p class="muted">중랑이 이미 하고 있는 일은 <a target="_blank" rel="noopener" href="https://github.com/goodmorninghope-khs/jungnang-signal/blob/main/shared/reference-hub.md">공통 참조(reference-hub)</a>에 원문과 함께 모읍니다.</p>
+  ${PLEDGE.map((p, k) => `<section class="shelfv"><h3>${'①②③④⑤⑥⑦'[k]} ${esc(PLEDGE_FULL[k])}</h3>${groups[k].length ? `<ul class="plist">${sortD(groups[k]).map(mini).join('')}</ul>` : '<p class="muted">이어진 지면을 모으는 중입니다.</p>'}</section>`).join('')}
+  <section class="shelfv ax"><h3>AX2030 · 공통 실행수단</h3><p class="muted">AX는 일곱 비전을 함께 받치는 수단으로 따로 모읍니다.</p>${axG.length ? `<ul class="plist">${sortD(axG).map(mini).join('')}</ul>` : ''}</section>`;
+  window.scrollTo(0, 0);
+}
+
+/* ---------- 침의 행방 ---------- */
+function chimTabs(on) { return `<div class="readtoggle tabs" role="tablist"><a class="${on === 'chim' ? 'on' : ''}" href="#/chim">침 · 아궁이</a><a class="${on === 'trace' ? 'on' : ''}" href="#/trace">침의 행방</a></div>`; }
+function viewTrace() {
+  setNav('chim');
+  const st = (TRACE.stages && TRACE.stages.length) ? TRACE.stages : ['건넴', '함께 봄', '시범', '이어 감', '쉬어 감(배운 것)'];
+  const items = TRACE.items || [];
+  $('#main').innerHTML = `${chimTabs('trace')}
+  <h2 class="sec">침의 행방 <span class="en">WHERE THE CHIM WENT</span></h2>
+  <p class="secDesc">${esc(TRACE.note || '침은 편집국이 건넨 제안입니다. 단계는 공식 원문이나 부서가 알려 준 것으로 확인될 때만 바꿉니다. 기다리는 단계는 \'건넴\'이며, 이어지지 않은 제안도 배운 것을 남깁니다.')}</p>
+  <div class="stages">${st.map(s => `<span>${esc(s)}</span>`).join('<b>→</b>')}</div>
+  ${items.length ? items.map(t => { const k = Math.max(0, st.indexOf(t.stage)); return `<article class="trace">
+    <div class="meta"><a href="#/read/${encodeURIComponent(t.from.edition_id)}/${esc(t.from.anchor || '')}">${esc(t.from.label || '')} · ${esc(t.from.signal || '')}</a> · ${esc(t.from.date || '')}${t.pledge ? ` · <span class="tag pl" title="${esc(t.pledge_note || '')}">닿는 공약 ${esc(t.pledge)}</span>` : ''}</div>
+    <p class="chimline">${esc(t.chim)}</p>
+    <div class="steps">${st.map((s, j) => `<span class="${j === k ? 'now' : j < k ? 'past' : ''}">${esc(s)}</span>`).join('')}</div>
+    ${(t.updates || []).length ? `<ul class="upd">${t.updates.map(u => `<li>${esc(u.date)} · ${esc(u.stage)} · ${esc(u.note || '')}${u.source ? (/^https?:/.test(u.source) ? ` · <a target="_blank" rel="noopener" href="${esc(u.source)}">근거</a>` : ' · ' + esc(u.source)) : ''}</li>`).join('')}</ul>` : ''}
+    <div class="reply">부서 한 줄 답장: ${t.reply ? esc(t.reply) : '<span class="muted">답장은 통합 데스크로 알려 주세요. 알려 주신 내용으로 단계를 이어 적습니다.</span>'}</div>
+  </article>`; }).join('') : '<p class="muted">건넨 침을 모으는 중입니다.</p>'}`;
+  window.scrollTo(0, 0);
+}
+
+/* ---------- 정정 대장 ---------- */
+function corrLedger() {
+  const rows = (CORR.items || []).slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  const vers = signal.filter(x => isPub(x) && (x.versions || []).some(v => v && (v.body || v.label)) && !rows.some(r => r.edition_id === x.id));
+  return `<p class="secDesc">편집국 텍스트판의 [정정]·[보탬]·[후속] 줄을 그대로 모읍니다. 정정은 발행한 사실을 바로잡은 것, 보탬은 조건·맥락을 더한 것, 후속은 새로 이어진 소식입니다. 처음 판은 지우지 않고 이전 판본으로 남깁니다.</p>
+  ${rows.length ? `<table class="ledger"><thead><tr><th>날짜</th><th>구분</th><th>판</th><th>무엇을 → 어떻게</th><th>왜</th><th>이전 판</th></tr></thead><tbody>${rows.map(c => `<tr><td>${esc(c.date || '')}</td><td>${esc(c.kind || '')}</td><td><a href="#/read/${encodeURIComponent(c.edition_id || '')}">${esc(c.edition_id || '')}</a></td><td>${esc(c.what || '')} → ${esc(c.how || '')}</td><td>${esc(c.why || '')}${c.when ? ' · ' + esc(c.when) : ''}</td><td>${c.prev_version_link ? `<a href="${esc(c.prev_version_link)}">보기</a>` : ''}</td></tr>`).join('')}</tbody></table>` : '<p class="muted">아직 올라온 정정·보탬 기록이 없습니다. 기록이 생기면 이 대장에 날짜순으로 쌓입니다.</p>'}
+  ${vers.length ? `<p class="muted">이전 판본을 남긴 판: ${vers.map(x => `<a href="#/read/${encodeURIComponent(x.id)}">${esc(x.title)}</a>`).join(' · ')}</p>` : ''}`;
+}
+function viewCorrections() { setNav('desk'); $('#main').innerHTML = `<h2 class="sec">정정 대장 <span class="en">CORRECTIONS</span></h2>${corrLedger()}<p><a href="#/desk">← 편집실</a></p>`; window.scrollTo(0, 0); }
+
 /* ---------- 라우터 ---------- */
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
@@ -521,6 +617,9 @@ function route() {
   if (h === 'shelf') return viewShelf();
   if (h === 'founding') return viewFounding();
   if (h === 'desk') return viewDesk();
+  if (h === 'pledge') return viewPledge();
+  if (h === 'trace') return viewTrace();
+  if (h === 'corrections') return viewCorrections();
   return viewToday();
 }
 window.addEventListener('hashchange', () => { route(); if (!location.hash.includes('read/')) window.scrollTo(0, 0); });
