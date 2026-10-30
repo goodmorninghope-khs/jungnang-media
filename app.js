@@ -121,14 +121,14 @@ function corrOf(it) {
 }
 const corrBadge = it => corrOf(it).has ? '<span class="tag corr" title="정정·보탬 기록이 있는 판입니다. 처음 판은 이전 판본으로 보존합니다">정정</span>' : '';
 function readMin(it) { const n = plain(it.body || it.desc || '').length; return n ? Math.max(1, Math.round(n / 500)) : 0; }
-function kindLabel(html) { return String(html).replace(/<p>\s*<b>(촉|읽기|침[^<]{0,30}|중랑에 적용한다면[^<]{0,30})<\/b>/g, (m, lab) => { const k = /^촉/.test(lab) ? 'fact' : /^읽기/.test(lab) ? 'read' : 'chim'; return `<p class="k-${k}"><b class="klabel">${lab}</b>`; }); }
+function kindLabel(html) { return String(html).replace(/<p>\s*(?:<b>\s*(촉|읽기|침[^<]{0,30}|중랑에 적용한다면[^<]{0,30})\s*<\/b>|(촉|읽기|침|중랑에 적용한다면[^:：<]{0,30})\s*[:：])/g, (m, a, b) => { const lab = (a || b).trim(); const k = /^촉/.test(lab) ? 'fact' : /^읽기/.test(lab) ? 'read' : 'chim'; return `<p class="k-${k}"><b class="klabel">${lab}</b>`; }); }
 const KIND_LEGEND = '<div class="kindlegend" aria-label="글의 종류"><span class="k-fact"><b class="klabel">촉</b> 밖에서 확인한 사실</span><span class="k-read"><b class="klabel">읽기</b> 편집국의 해석</span><span class="k-chim"><b class="klabel">침</b> 편집국 의견 · 행정의 결정이 아닙니다</span></div>';
 function card(it) {
   return `<article class="card">
     ${it.img ? `<a href="#/read/${encodeURIComponent(it.id)}"><img loading="lazy" src="${esc(it.img)}" alt=""></a>` : ''}
     <span class="series">${esc(seriesLabel(it))}${it.vol ? ' · ' + it.vol : ''}${special(it) ? ' · ' + special(it) : ''} · ${role(it)}</span>
     <h4><a href="#/read/${encodeURIComponent(it.id)}">${esc(it.title)}</a></h4>
-    <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ')' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}${readMin(it) ? ' · 약 ' + readMin(it) + '분 읽기' : ''}</div>
+    <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ')' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}${readMin(it) ? ' · 전문 약 ' + readMin(it) + '분' : ''}</div>
     <div>${tags(it)}${corrBadge(it)}</div>
     ${it.desc ? `<p>${esc(it.desc)}</p>` : ''}
     ${it.q ? `<div class="q">Q. ${esc(it.q)}</div>` : ''}
@@ -392,7 +392,7 @@ function viewRead(id, anc) {
     <p><a href="javascript:history.back()" class="meta">← 돌아가기</a></p>
     <span class="eyebrow">${esc(seriesLabel(it))}${it.vol ? ' · ' + it.vol : ''}${special(it) ? ' · ' + special(it) : ''} · ${role(it)}</span>
     <h1>${esc(it.title)}</h1>
-    <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ') 발행' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}${it.edition ? ' · ' + esc(it.edition) : ''}${readMin(it) ? ' · 약 ' + readMin(it) + '분 읽기' : ''}</div>
+    <div class="meta">${it.d ? fmt(it.d) + ' (' + wd(it.d) + ') 발행' : '발행일 원본 참조'}${it.topic ? ' · ' + esc(it.topic) : ''}${it.edition ? ' · ' + esc(it.edition) : ''}${readMin(it) ? ' · 전문 약 ' + readMin(it) + '분' : ''}</div>
     <div class="credit">만든 곳 · 쓴 곳 Claude 편집국 · 사실 확인 GPT 외부고문(발행 뒤) · 진열 Aside 통합 데스크${it.publishedAt ? ' (편집국 발행 ' + esc(String(it.publishedAt).slice(11,16)) + ')' : (it.desk ? '' : ' · 제작실 판')} · 결정 발행인 · <a href="#/founding">편집 원칙</a> · <a href="#/corrections">정정 대장</a></div>
     <div style="margin:8px 0">${tags(it)}${corrBadge(it)}</div>
     ${one ? `<div class="oneminute"><span class="eyebrow">1분 읽기</span>${one}</div>` : ''}
@@ -400,7 +400,7 @@ function viewRead(id, anc) {
     ${it.q ? `<div class="chimbox"><b>JUNGNANG Q</b> · ${esc(it.q)}</div>` : ''}
     ${pairOf(it.id) ? `<div class="note"><b>두 시선</b> · 같은 날 같은 지면을 다른 엔진도 냈습니다. <a href="#/fusion">융복합 통합본 「${esc(pairOf(it.id).title)}」 읽기 →</a></div>` : ''}
     ${imgs.length ? `<div class="readtoggle" role="group" aria-label="읽는 방식"><button class="on" onclick="readMode('text')">텍스트 읽기</button><button onclick="readMode('page')">지면 보기</button></div>` : ''}
-    ${/<b>(촉|읽기|침)/.test(bodyA) ? KIND_LEGEND : ''}
+    ${/<p>\s*(<b>\s*)?(촉|읽기|침)/.test(bodyA) ? KIND_LEGEND : ''}
     <div class="body" id="readBody">${kindLabel(bodyA) || '<p class="muted">본문은 원본 지면에서 읽을 수 있습니다.</p>'}</div>
     ${imgs.length ? `<details class="pagebox" id="pageBox"${window.innerWidth >= 900 ? ' open' : ''}><summary>지면 이미지 보기 (${imgs.length}장)</summary><div class="imgs">${imgs.map(s => `<img loading="lazy" src="${esc(s)}" alt="지면" onclick="zoomImg('${esc(s)}')">`).join('')}</div></details>` : ''}
     ${sigs.length ? `<div class="sigtail"><span class="eyebrow">신호별 근거</span><ol>${sigs.map(s => `<li><a href="#/read/${encodeURIComponent(it.id)}/${esc(s.id || '')}">${esc(s.title || s.id || '')}</a>${s.pledge ? ` <span class="tag pl">${esc(s.pledge)}</span>` : ''}${s.src_type ? ` <span class="tag">${esc(s.src_type)}</span>` : ''}${s.link_type ? ` <span class="muted">· ${esc(s.link_type)}</span>` : ''}${s.url ? ` · <a target="_blank" rel="noopener" href="${esc(s.url)}">원문</a>` : ''}${s.published ? ` <span class="muted">(발표 ${esc(s.published)})</span>` : ''}</li>`).join('')}</ol></div>` : ''}
