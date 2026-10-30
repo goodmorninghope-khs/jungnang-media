@@ -1,0 +1,783 @@
+{
+ "note": "GPT 외부고문 1차 분류(2026-10-30), 편집국 확인 전. 본문 주된 의제와 적용 제안 기준의 서가용 분류이며 공약 이행 판정이 아님. AX는 공통 실행수단.",
+ "vision": {
+  "①": "교육",
+  "②": "경제·도시개발",
+  "③": "동북권 교통",
+  "④": "주거환경",
+  "⑤": "문화",
+  "⑥": "복지",
+  "⑦": "걷기"
+ },
+ "items": [
+  {
+   "id": "morning-20261003",
+   "date": "2026.10.03",
+   "series": "MORNING",
+   "title": "도구는 늘었다. 이음매는 누가 잇는가",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "부서 간 데이터·책임 연결과 공통 제작 규칙을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "morning-20261004",
+   "date": "2026.10.04",
+   "series": "MORNING",
+   "title": "할인율이 아니라 소비의 길을 다시 그린다",
+   "pledges": [
+    "②",
+    "⑥",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "골목 소비 동선, 불법사금융 피해 지원 연결, 행정 AI 책임을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "morning-20261005",
+   "date": "2026.10.05",
+   "series": "MORNING",
+   "title": "하수는 먼저 알렸다",
+   "pledges": [
+    "⑥",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "감염 고위험군의 예방접종 접근과 고령친화 상점 이용환경을 연결합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "ax-20261005",
+   "date": "2026.10.05",
+   "series": "WEEKLY AX",
+   "title": "에이전트를 세기 전에, 행동권한을 설계하라",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "AI의 권한·승인·로그·복구와 주민 경험 검증을 제안합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-morning-signal-20261006",
+   "date": "2026.10.06",
+   "series": "MORNING",
+   "title": "가입은 한 번, 해지도 한 번",
+   "pledges": [
+    "AX",
+    "⑦"
+   ],
+   "status": "분류",
+   "basis": "행정서비스 전체 여정과 AI 책임 기준, 걷는 중 쉬어갈 접근성을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-morning-signal-20261006-additional",
+   "date": "2026.10.06",
+   "series": "MORNING",
+   "title": "지원의 마지막 1m에 사람이 섰다",
+   "pledges": [
+    "①",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "지역아동센터의 대면 멘토링으로 학습지원이 실제 이용에 닿는 길을 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-leadership-signal-dubu-20261006",
+   "date": "2026.10.06",
+   "series": "두부",
+   "title": "리더는 무엇을 직접 챙겨야 하는가?",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "리더의 직접 판단과 팀 자율의 경계를 AX 판단권한 설계에 연결합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1s2IG75iT41MdpJVIpb7rrZzkF1h60wZbGg8auW5ijow",
+   "date": "2026.10.06",
+   "series": "MORNING",
+   "title": "중랑교쇼핑센터, 역세권 활성화 대상지로 뽑혔다 — 중랑구 첫 사례",
+   "pledges": [
+    "②",
+    "④",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "역세권 개발의 생활 수요·영업 대책과 야장 금융지원·통합돌봄을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-13RVDU38C9W0ogMystw1uxDWLW5XdQHBXKppNn95nRPw",
+   "date": "2026.10.06",
+   "series": "MORNING",
+   "title": "온누리 개편안, 전통시장 10%·수도권 골목 5%",
+   "pledges": [
+    "②",
+    "⑦",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "시장 소비 동선, 제조 AI 성과 구분, 동행길 이용자료 해석을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-leadership-signal-dubu-20261007-manual",
+   "date": "2026.10.07",
+   "series": "두부",
+   "title": "리더는 ‘원래 그런 것’을 어디서 깨야 하는가?",
+   "pledges": [],
+   "status": "없음",
+   "basis": "주민의 절차상 불편을 조직의 의제로 만드는 일반 리더십 원칙입니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-signal-20261007",
+   "date": "2026.10.07",
+   "series": "WEEKLY",
+   "title": "복지 AI, 기술보다 연결의 길을 먼저 그리자",
+   "pledges": [
+    "⑥",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "복지상담·신청·서비스 연결의 주민여정과 AI 행동권한을 함께 설계합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1MXCQpxe8EYEh574fn205yR5xllB8Z5BlQldgy1KnEEk",
+   "date": "2026.10.07",
+   "series": "WEEKLY",
+   "title": "집은 2,037가구까지 셌다. 가게는 아직 아무도 세지 않았다",
+   "pledges": [
+    "④",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "재개발 과정에서 세입자 주거와 기존 가게의 영업 지속을 함께 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1t7JhTUEiLF1ZslJE1k7F7KmMQeO3qPwdj7e0t2DWlNI",
+   "date": "2026.10.07",
+   "series": "MORNING",
+   "title": "사가정역 앞 면목동, 2,037가구 재개발 구역이 됐다",
+   "pledges": [
+    "④",
+    "②",
+    "①",
+    "⑤"
+   ],
+   "status": "분류",
+   "basis": "재개발의 세입자·상가 현황, 아동 학습지원, 하천 야간문화 사례를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-morning-signal-20261008",
+   "date": "2026.10.08",
+   "series": "MORNING",
+   "title": "상봉 야장, 선정 다음은 운영의 숫자다",
+   "pledges": [
+    "②",
+    "⑦",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "야장의 매출·보행·생활환경과 장애인 치과 이용경로를 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1aJQ73_s-mF4uN9UsBbdwo7ufJNYrjcMwgbywftBfqHs",
+   "date": "2026.10.08",
+   "series": "MORNING",
+   "title": "기후동행카드가 끝나자 따릉이가 빠졌다",
+   "pledges": [
+    "③",
+    "⑥",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "교통요금·환승 이용, 아픈 노동자의 소득지원, 소기업 AI 효과를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1pYzRmRpX7dAXc87YVa6ip6bgShfn8jcEeGnWqytx4TM",
+   "date": "2026.10.09",
+   "series": "MORNING",
+   "title": "로마자 간판 보고 빵집인 줄 안 사람 9%, 뜻 한 줄을 더 적자 93%",
+   "pledges": [
+    "②",
+    "⑦",
+    "①"
+   ],
+   "status": "분류",
+   "basis": "가게 정보 접근, 고령 보행 안전, 학생 문해력 지원을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1X2Wwdbul2-hIj5ij_xgQaAUgIjkQaS4ly7PKN6UxNGo",
+   "date": "2026.10.10",
+   "series": "MORNING",
+   "title": "망우동 언덕 170가구가 450가구로, 반지하에 사는 사람은 발표에 없었다",
+   "pledges": [
+    "④",
+    "⑥",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "정비사업 세입자, 중장년 1인가구 관계망, AI 도입과 효과의 구분을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1nhWAouDuVFxkmCC7hHPKaO5lR_Vi5K73tfoq-JHdukg",
+   "date": "2026.10.11",
+   "series": "MORNING",
+   "title": "셰필드는 공사 공지 첫 줄에 '모든 가게 영업 중'을 적었다",
+   "pledges": [
+    "②",
+    "⑦",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "공사 중 상점·보행 접근, 플랫폼 비용, 장애인 체육시설 이용을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-ax-signal-20261012",
+   "date": "2026.10.12",
+   "series": "WEEKLY AX",
+   "title": "AI를 얹기 전에, 행정을 풀어라",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "도구 도입보다 업무 단계 간소화와 권한·책임 재설계를 제안합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1_QkwK4t1owFUlrf0k7ZjmEj6NTO-kDhSrv3OvlXrmFs",
+   "date": "2026.10.12",
+   "series": "WEEKLY AX",
+   "title": "AI 숏폼 영상 한 편도 'AI 활용 1건'이었다",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "AI 활용 건수와 실제 업무·주민 경험 성과를 구분하는 기준을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1dKJe9Zk--Rpksuiy7QqJQ6D1P1moGJjLwp653cnRGqg",
+   "date": "2026.10.12",
+   "series": "MORNING",
+   "title": "20대 사장님 3만 1천 명 늘었다, 늘어난 10명 중 9명은 직원 없이 혼자",
+   "pledges": [
+    "②",
+    "①",
+    "⑦"
+   ],
+   "status": "분류",
+   "basis": "청년 자영업의 조건, AI 학습자료의 효과, 보행공간 전환을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-dubu-leadership-signal-20261013",
+   "date": "2026.10.13",
+   "series": "두부",
+   "title": "위임은 손을 떼는 일인가, 기준을 더 선명하게 만드는 일인가?",
+   "pledges": [],
+   "status": "없음",
+   "basis": "문제·기준·보고선을 리더가 붙드는 일반적인 위임 원칙입니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1Tnja2OkDjv1jjTptez6bmPuo9Q9wKB38EF6ccjvW-nI",
+   "date": "2026.10.13",
+   "series": "두부",
+   "title": "주민에게 공약을 다시 묻는 자리는, 그 답을 받았는지를 언제·어디에·누구 이름으로 공개하는가?",
+   "pledges": [],
+   "status": "없음",
+   "basis": "특정 비전의 내용보다 전체 공약에 대한 권고·회신·공개 방식을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1fcCI1EsxkKWsnPOlJR3nfxoQg8rS-pAbBo5llUEGN_s",
+   "date": "2026.10.13",
+   "series": "MORNING",
+   "title": "모아타운 공모 오늘 열렸다, 찬성도 반대도 소유자만 센다",
+   "pledges": [
+    "④",
+    "②",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "정비사업 참여 범위, 골목 경기, AI 민원전화의 사람 연결을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-signal-20261014",
+   "date": "2026.10.14",
+   "series": "WEEKLY",
+   "title": "행정의 완료 뒤에, 주민의 일이 남아 있다",
+   "pledges": [
+    "⑥",
+    "④",
+    "②",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "돌봄 연계 뒤 실제 이용과 개발·공사 중 주거·가게 접근을 확인합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1-3WKqbaHJUDAPIiHhd_BZJw5lDH0DZz3L6mjZjRyYKY",
+   "date": "2026.10.14",
+   "series": "WEEKLY",
+   "title": "모아타운 두 곳이 한 주에 통과했다, 세입자 확인 칸에는 아직 담당이 없다",
+   "pledges": [
+    "④",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "정비사업 세입자 자료와 통합돌봄의 실제 이용 확인을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1Gq0UuDJKuoyeQZLzsjF1B0WSSsprf7U20tHY02LDWg8",
+   "date": "2026.10.14",
+   "series": "MORNING",
+   "title": "돌봄 지도 처음 그렸다, 집으로 오는 의료는 얇았다",
+   "pledges": [
+    "⑥",
+    "⑦"
+   ],
+   "status": "분류",
+   "basis": "지역 돌봄 수요·공급과 보행공간·하역 동선의 조정을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1nXoeLezKnpPVGlbQYAdYujZi0m9L48rahaMoeJSpkfU",
+   "date": "2026.10.15",
+   "series": "MORNING",
+   "title": "'면담'이라 불러도 정답이 있으면 시험이다",
+   "pledges": [
+    "①",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "유아 선발 관행·학교 설비 안전과 빈 점포 재사용을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1M016_AOmIwo1-RnDh9jx6aS8BAQIS7wUQTUR9MmLGIY",
+   "date": "2026.10.16",
+   "series": "MORNING",
+   "title": "오래가게 위크 12일, 중랑 세 가게에 남는 것은 현판 한 장과 지도 한 줄이다",
+   "pledges": [
+    "②",
+    "③"
+   ],
+   "status": "분류",
+   "basis": "정정문을 포함해 오래가게의 재방문 조건과 대중교통 접근을 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-133MsC6jhJXrK_KhounSSleACxl8mo9VXWFF4L3haXCk",
+   "date": "2026.10.17",
+   "series": "MORNING",
+   "title": "온열질환자는 줄었는데, 집에서 발생해 신고된 온열질환자는 절반 가까이 늘었다",
+   "pledges": [],
+   "status": "확인 필요",
+   "basis": "피드에 정정 안내 뒤 원문 파일 오류 문구가 있어 본문 전체 분류가 어렵습니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-10CvbvmB-Kp2BTXQXZx-NbIb_oMfpypYs6nmbqEpBJVo",
+   "date": "2026.10.18",
+   "series": "MORNING",
+   "title": "폐가전 수거함 열에 여덟은 아파트 안에 있다",
+   "pledges": [
+    "④",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "다세대 생활환경·거주 중 주택 개보수와 시장 소비 유도를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1puB9B4YafkmBYArk74bnNc0BXrQRXk-Rs9GrLXRRvOU",
+   "date": "2026.10.19",
+   "series": "MORNING",
+   "title": "엘리베이터 한 대가 서면 갈 길이 끊기는 역, 416곳",
+   "pledges": [
+    "③",
+    "⑥",
+    "①"
+   ],
+   "status": "분류",
+   "basis": "철도역 이동 연속성, 지원금 사전 안내, 특수교사 치료비 접근을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1JPuTUjkeM869DTYw4BkqqxwWGX6_gEK1pzsz0uclU78",
+   "date": "2026.10.19",
+   "series": "WEEKLY AX",
+   "title": "AI 요약 다섯에 하나가 점검에서 떨어졌다. 점검받은 요약은 0.3%였다",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "행정 AI 요약의 원문 대조·품질검증·열람·정정 조건을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-ax-signal-20261019",
+   "date": "2026.10.19",
+   "series": "WEEKLY AX",
+   "title": "먼저 찾는 행정, 대신 결정하지 않는 AI",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "발견주의 행정에서 조회·판단·안내·신청의 권한을 나눕니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-13soJrxHC5MdnaQUlGyZSli5iF_ytnAmSx2Ju5n0I29w",
+   "date": "2026.10.20",
+   "series": "두부",
+   "title": "'다른 팀이 다시 봐 주세요', 영국 병원에서 1만 3,481번 울렸다",
+   "pledges": [],
+   "status": "없음",
+   "basis": "의료 사례를 공약 권고안·행정 판단의 독립 재검토 경로로 번역합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1PaO7Dh1CsYotc41dGoEuFnxZg9aWpXXAWG8lId6dn1o",
+   "date": "2026.10.20",
+   "series": "MORNING",
+   "title": "낙상 치료비 25억 원이 생긴다, 진단서를 들고 갈 사람이 먼저다",
+   "pledges": [
+    "⑥",
+    "⑤"
+   ],
+   "status": "분류",
+   "basis": "고령자 치료비 신청 연결, 문화원 재원, 청년 지원의 효과를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1GM8zlVpwck8666-BHojA3J5TCx8qedGUgq7uPwFMx5U",
+   "date": "2026.10.21",
+   "series": "WEEKLY",
+   "title": "엘리베이터 한 대에 걸린 역 416곳, 중랑의 역은 아직 확인 전이다",
+   "pledges": [
+    "③",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "철도역 대체 이동경로를 주의제로 삼고 돌봄 후속 확인을 잇습니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-signal-20261021",
+   "date": "2026.10.21",
+   "series": "WEEKLY",
+   "title": "도입·발행의 숫자보다, 누가 다시 보고 고치는지가 먼저다",
+   "pledges": [
+    "AX",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "AX 검증 설계와 상봉 야간상권 상품권의 도달·효과를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1ZWehPRn21Lr6wzPXs44RJDNX9cDyDOZZvSIUbt85XNE",
+   "date": "2026.10.21",
+   "series": "MORNING",
+   "title": "서울 아파트 월세 거래는 줄었는데, 중랑은 두 배 가까이 늘었다",
+   "pledges": [
+    "④",
+    "②",
+    "①"
+   ],
+   "status": "분류",
+   "basis": "월세 계약 지원, 야간상권 상품권, 교육활동·보호자 지원을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1Me2eS8X4ej1ZEhiINbpX_0Tk9hOod2BwivkmTyku0YQ",
+   "date": "2026.10.22",
+   "series": "MORNING",
+   "title": "10회 이상 넘겨진 민원, 3년 새 103건에서 252건이 됐다",
+   "pledges": [
+    "AX",
+    "⑦",
+    "⑤",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "민원 인수 책임, 시장 주변 보행 안전, 고령층 문화 이용 동행을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-signal-20261022",
+   "date": "2026.10.22",
+   "series": "WEEKLY",
+   "title": "멈췄을 때, 다음 길이 있는가",
+   "pledges": [
+    "③"
+   ],
+   "status": "분류",
+   "basis": "상봉역 한 동선의 엘리베이터 중단 시 대체 경로·안내 책임을 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1Dit0cnt-zmdz7iSWyvnRXQ9FyBYItgwsqDP7fMis0GI",
+   "date": "2026.10.23",
+   "series": "MORNING",
+   "title": "새로 문 연 기업 5년째 줄었다, 70대 이상 창업은 13.8% 늘었다",
+   "pledges": [
+    "②",
+    "①"
+   ],
+   "status": "분류",
+   "basis": "창업 생존·골목상권 지정 조건과 학습코디네이터 지원을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1LJqitAUSo1HftPKwgG2Atv9agPvi7PsNi0JNBoi0SvE",
+   "date": "2026.10.24",
+   "series": "MORNING",
+   "title": "노인 건강 인기 영상 100개 중 42개는 AI가 만들었다, 24개는 의사 등 전문가를 사칭했다",
+   "pledges": [
+    "⑥",
+    "①",
+    "②",
+    "⑤"
+   ],
+   "status": "분류",
+   "basis": "고령층 정보 판별 학습·일자리와 시장·골목의 책 축제를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-141iPJAo-mTsUFb-LQmzWs-36UneOoQ6QaerdqFUv3bg",
+   "date": "2026.10.25",
+   "series": "MORNING",
+   "title": "면목역 모아타운 임대주택 459가구가 310가구로 줄었다, 줄인 이유별 몫은 나오지 않았다",
+   "pledges": [
+    "④",
+    "③",
+    "②"
+   ],
+   "status": "분류",
+   "basis": "임대주택 계획 조정, 행사 중 버스 우회, 공공배달앱 지원을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1agZs5qy5sY0tEkBVNav3EjVJeTpBikgQ5Wocd6YrJFQ",
+   "date": "2026.10.26",
+   "series": "MORNING",
+   "title": "정원은 짓는 날보다 돌보는 날이 길다, 성북 마을정원사들은 세 곳 조성에 참여했다",
+   "pledges": [
+    "⑦",
+    "②",
+    "⑤"
+   ],
+   "status": "분류",
+   "basis": "정원 유지관리, 전통시장 관광 안내, 문화시설 요금·이용을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1NHr54Mo4ra33OtY8EkOP9sAWPq6U8uzoZR4AGMtW60g",
+   "date": "2026.10.26",
+   "series": "WEEKLY AX",
+   "title": "요양보호사 배정 AI는 '후보와 근거까지'만 낸다, 사람이 고른 이유를 남길 칸은 발표에 없었다",
+   "pledges": [
+    "⑥",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "돌봄 인력 배정에서 AI 추천과 사람의 최종 판단·기록을 구분합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-ax-signal-20261026",
+   "date": "2026.10.26",
+   "series": "WEEKLY AX",
+   "title": "개인이 만들고, 조직이 책임진다",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "개인의 AI 실험을 기관 운영·책임·재사용 체계로 잇는 조건을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1-wgPRMOjRxQGxLaIyH8MnirdqyEcR46Mrhp95BjbTMU",
+   "date": "2026.10.27",
+   "series": "MORNING",
+   "title": "베테랑 감독관의 판단을 36개 항목에 옮겼다, 신규 지방노동감독관 27명은 6주 동안 모의 사업장을 돈다",
+   "pledges": [
+    "AX",
+    "①",
+    "⑥",
+    "⑦"
+   ],
+   "status": "분류",
+   "basis": "업무 판단의 전수, 이주배경 아동 안내, 보행 중 이동장치 불편을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1OEKzq8XcKWwNzvZxTqj6TDPvVW_KsxXvQx2TaBT30SU",
+   "date": "2026.10.27",
+   "series": "두부",
+   "title": "협력은 늘지 않았다, 그 시도가 우수사례 목록에 올랐다",
+   "pledges": [
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "기대와 다른 실험 결과를 학습자료로 남기는 방식을 AX 운영에 연결합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-dubu-leadership-signal-20261027",
+   "date": "2026.10.27",
+   "series": "두부",
+   "title": "일은 맡기고, 경계는 직접 잡는다",
+   "pledges": [],
+   "status": "없음",
+   "basis": "전략일정의 목적·자율·중단·보고 경계를 정하는 일반 리더십 원칙입니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1F6PiT71qA5XTwJvjM6H_Qup2clogHnQi0FwTJVP71R0",
+   "date": "2026.10.28",
+   "series": "MORNING",
+   "title": "눈 예보가 있으면 출근 전 7시까지, 수원은 장비 대수 옆에 '끝내는 시각'을 적었다",
+   "pledges": [
+    "③",
+    "⑦",
+    "②",
+    "⑥"
+   ],
+   "status": "분류",
+   "basis": "겨울 도로·보행의 통행 조건과 자영업 이후 돌봄 일자리 연결을 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1E-gBSAbemNIRTzhQC7G07zstIgccVslIRRDU8y8sS7Q",
+   "date": "2026.10.28",
+   "series": "WEEKLY",
+   "title": "면목 모아타운 임대 467(합산)→459→310, 세 숫자를 잇는 근거는 아직 공개 자료로 이어지지 않는다",
+   "pledges": [
+    "④"
+   ],
+   "status": "분류",
+   "basis": "정비사업 임대주택 계획의 변경 근거와 세입자 보상 자료를 살핍니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "library-weekly-signal-20261028",
+   "date": "2026.10.28",
+   "series": "WEEKLY",
+   "title": "결과만 남기면, 줄어든 몫과 넘겨받은 책임이 사라진다",
+   "pledges": [
+    "④",
+    "AX"
+   ],
+   "status": "분류",
+   "basis": "주거정비 변경 근거와 행정 업무의 판단·인수 기록을 함께 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-11pPr2RUYvQ9QZojEABPP7AzAJObnzr6FiOYAtSWrGK0",
+   "date": "2026.10.29",
+   "series": "MORNING",
+   "title": "영국은 골목 가게 절반의 사업세를 0으로 만들면서, 빠질 업종의 이름도 함께 적었다",
+   "pledges": [
+    "②",
+    "⑥",
+    "④",
+    "⑤"
+   ],
+   "status": "분류",
+   "basis": "골목 지원 기준, 주거급여 접근, 돌봄 경험 청년의 창작·판매를 다룹니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  },
+  {
+   "id": "drive-1I1Wy22y7qiFXBLuQwxcQZmJP83NdIAXHqNN9WsoLDjg",
+   "date": "2026.10.30",
+   "series": "MORNING",
+   "title": "편지와 함께 먹거리를, 집배원이 문 앞에서 안부까지 살핀다",
+   "pledges": [
+    "⑥",
+    "⑦"
+   ],
+   "status": "분류",
+   "basis": "문 앞 복지 연결과 돌봄 시범의 지속 조건, 생활권 쉼 지도를 제안합니다.",
+   "by": "GPT 외부고문 1차 분류 2026-10-30",
+   "confirmed": false
+  }
+ ]
+}

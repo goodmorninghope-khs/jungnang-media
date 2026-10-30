@@ -1,0 +1,108 @@
+{
+ "note": "침은 편집국이 건넨 제안입니다. 단계는 공식 원문이나 부서가 알려 준 것으로 확인될 때만 바꿉니다. 기다리는 단계는 '건넴'이며, 이어지지 않은 제안도 배운 것을 남깁니다.",
+ "stages": [
+  "건넴",
+  "함께 봄",
+  "시범",
+  "이어 감",
+  "쉬어 감(배운 것)"
+ ],
+ "items": [
+  {
+   "id": "morning-20261029-s1",
+   "chim": "골목형상점가 한 곳에서 상인회와 함께 \"지원 대상·제외 업종·그 이유\"를 한 장 공개표로 써 보는 것부터 시작할 수 있다. [정정] 표 아래에 이의를 받는 곳 한 줄을 둔다.",
+   "from": {
+    "edition_id": "drive-11pPr2RUYvQ9QZojEABPP7AzAJObnzr6FiOYAtSWrGK0",
+    "date": "2026.10.29",
+    "label": "MORNING 제25호 · 예비호 ①",
+    "signal": "머리 · 해외 정부 원문 · 경제·골목",
+    "anchor": "s1"
+   },
+   "pledge": "②",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  },
+  {
+   "id": "morning-20261029-s2",
+   "chim": "의결 뒤 한 동에서 새로 해당될 수 있는 구간의 가구에 안내를 한 번 보내고, 문의가 몇 건 오는지 세어 보는 것부터 시작할 수 있다. [도착]",
+   "from": {
+    "edition_id": "drive-11pPr2RUYvQ9QZojEABPP7AzAJObnzr6FiOYAtSWrGK0",
+    "date": "2026.10.29",
+    "label": "MORNING 제25호 · 예비호 ①",
+    "signal": "둘째 · 국내 정부·연구 · 주거·복지",
+    "anchor": "s2"
+   },
+   "pledge": "④·⑥",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  },
+  {
+   "id": "morning-20261029-s3",
+   "chim": "참여를 원하는 자립준비청년이 만든 소품을 구청 로비 점심 한 시간에 팔고 수익 전액을 돌려주는 자리를 한 분기 한 번 열어 볼 만하다. 공개 범위와 철회는 당사자가 정한다. [책임] 첫 회부터 끝까지 맡을 한 사람을 정한다.",
+   "from": {
+    "edition_id": "drive-11pPr2RUYvQ9QZojEABPP7AzAJObnzr6FiOYAtSWrGK0",
+    "date": "2026.10.29",
+    "label": "MORNING 제25호 · 예비호 ①",
+    "signal": "셋째 · 다른 도시 현장 · 문화×돌봄",
+    "anchor": "s3"
+   },
+   "pledge": "⑤·⑥",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  },
+  {
+   "id": "morning-20261030-s1",
+   "chim": "그냥드림은 전국 모든 시군구에서 운영 중이고, 중랑은 2025년 10월 혼자 사는 어르신 약 160명에게 AI 안부전화 '안심톡'을 시범으로 시작해 이상 징후를 동 주민센터로 잇는 길을 열었다(MTN 2025-10-22). 여기에 한 걸음 더하면, 안부전화에서 끼니 걱정이 들린 가구에 그냥드림 꾸러미를 이어 보는 것부터 함께 시작해 볼 수 있습니다. 이웃 동대문의 시범 운영 방식도 함께 지켜볼 만합니다. [도착] 한 분기 동안 이어진 건수를 세어 봅니다.",
+   "from": {
+    "edition_id": "drive-1I1Wy22y7qiFXBLuQwxcQZmJP83NdIAXHqNN9WsoLDjg",
+    "date": "2026.10.30",
+    "label": "MORNING 제26호 · 예비호 ②",
+    "signal": "머리 · 국내 정부 원문 · 복지·돌봄",
+    "anchor": "s1"
+   },
+   "pledge": "⑥",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  },
+  {
+   "id": "morning-20261030-s2",
+   "chim": "중랑은 올해 퇴원 어르신 '중간집' 공모에 선정돼(4월 1일) 신내동 의료안심주택을 활용한 시범을 단계적으로 준비하고 있다. 여기에 한 걸음 더하면, 시범을 여는 날 '잘되면 무엇으로 잇고, 멈추면 무엇을 남길지'를 한 장에 적어 두는 방식을 검토해 볼 만합니다. [책임]",
+   "from": {
+    "edition_id": "drive-1I1Wy22y7qiFXBLuQwxcQZmJP83NdIAXHqNN9WsoLDjg",
+    "date": "2026.10.30",
+    "label": "MORNING 제26호 · 예비호 ②",
+    "signal": "둘째 · 해외 도시 현장 · 행정×걷기",
+    "anchor": "s2"
+   },
+   "pledge": "⑦",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  },
+  {
+   "id": "morning-20261030-s3",
+   "chim": "중랑은 유동인구·대중교통 이용객이 많은 곳에 스마트쉼터 10곳을 두었고, 올해 3월 이용자 601명 조사에서 약 92%가 만족한다고 답했다(2026-05). 여기에 한 걸음 더하면, 쉼터·그늘막 지도에 65세 이상 비율·경로당·시장 동선을 겹쳐 시장 한 곳 둘레의 '쉼 지도'를 그려 보는 것부터 시작할 수 있습니다. [도착]",
+   "from": {
+    "edition_id": "drive-1I1Wy22y7qiFXBLuQwxcQZmJP83NdIAXHqNN9WsoLDjg",
+    "date": "2026.10.30",
+    "label": "MORNING 제26호 · 예비호 ②",
+    "signal": "셋째 · 다른 자치구 현장 · 걷기·환경",
+    "anchor": "s3"
+   },
+   "pledge": "⑦",
+   "pledge_note": "지면 키커 기준 기획단 표시, 편집국 확인 전",
+   "stage": "건넴",
+   "updates": [],
+   "reply": ""
+  }
+ ]
+}
