@@ -202,3 +202,13 @@ p,li,.body p{text-wrap:pretty}
 .meta{font-size:12px}
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-radius:4px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* 글 종류 표시(사실·해석·의견)와 만든 곳 표시 · 2026-10-30 */
+.kindlegend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0 4px;font-size:13px;color:var(--muted)}
+.klabel{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;margin-right:6px;vertical-align:1px}
+.k-fact .klabel{background:#e8edf7;color:#18264a}
+.k-read .klabel{background:#eef0e6;color:#3d4a1f}
+.k-chim .klabel{background:#fbe9e4;color:#9a2f1a}
+.body p.k-chim{border-left:3px solid #e9b8ab;padding-left:10px}
+.credit{font-size:12px;color:var(--muted);margin:6px 0 2px;line-height:1.6}
+.credit a{color:inherit;text-decoration:underline}
