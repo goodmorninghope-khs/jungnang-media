@@ -47,13 +47,27 @@ function srcTypes(it) {
 const isLocal = it => LOCAL_RE.test(it.title || '');
 const isPub = it => !['제작 기록'].includes(it.series);
 
+const PLEDGE = ['교육', '경제·도시개발', '동북권 교통', '주거환경', '문화', '복지', '걷기'];
+const PLEDGE_KW = [/교육/, /경제|도시개발|일자리|골목|상권/, /교통/, /주거|주택|정비/, /문화/, /복지|돌봄/, /걷기|보행|걷는/];
+function pledgesOf(it) {
+  const set = new Set();
+  const add = v => { const n = typeof v === 'number' ? v : (/^[1-7]$/.test(String(v)) ? +v : ('①②③④⑤⑥⑦'.indexOf(String(v)) + 1) || (PLEDGE.findIndex(p => String(v).includes(p.split('·')[0])) + 1)); if (n >= 1 && n <= 7) set.add(n); };
+  if (Array.isArray(it.pledges)) it.pledges.forEach(add);
+  const txt = plain(it.body || '') + ' ' + (it.desc || '');
+  for (const m of txt.matchAll(/닿는\s*공약\s*[:：]?\s*([^.\n]{1,60})/g)) {
+    const seg = m[1];
+    for (const ch of seg.matchAll(/[①②③④⑤⑥⑦]/g)) add(ch[0]);
+    if (!/[①②③④⑤⑥⑦]/.test(seg)) PLEDGE_KW.forEach((re, k) => { if (re.test(seg)) set.add(k + 1); });
+  }
+  return [...set].sort();
+}
 function enrich(list) {
   const axMap = {};
   for (const l of ledger) if (l.id && l.id.startsWith('site:')) axMap[l.id.slice(5)] = l.ax2030 || [];
   return list.map(it => {
     const d = nd(it.date);
     return Object.assign({}, it, {
-      d, vol: volOf(it), q: questionOf(it), src: srcTypes(it), local: isLocal(it), ax: axMap[it.id] || [],
+      d, vol: volOf(it), q: questionOf(it), src: srcTypes(it), local: isLocal(it), ax: axMap[it.id] || [], pl: pledgesOf(it),
       img: (it.images && it.images[0]) ? abs(PM, it.images[0]) : (it.thumb ? abs(PM, it.thumb) : '')
     });
   }).sort((a, b) => (b.d || '0').localeCompare(a.d || '0'));
@@ -91,6 +105,7 @@ function tags(it, opt = {}) {
   let h = '';
   for (const s of it.src.slice(0, 2)) h += `<span class="tag src-${s.k}" title="본문 출처 링크 ${s.n}건">${s.k === '국내연구' ? '국내 연구' : s.k === '정부' ? '정부·공공' : s.k}</span>`;
   if (it.local && opt.local !== false) h += `<span class="tag local" title="제목에 중랑 지명">중랑 현안</span>`;
+  for (const p of (it.pl || [])) h += `<span class="tag pl" title="닿는 공약(민선9기 7대 비전) · 어느 공약과 이어지는 소식인지 알려 주는 안내입니다">비전·${PLEDGE[p - 1]}</span>`;
   for (const a of it.ax) h += `<span class="tag ax" title="${esc(AXL[a] || '')}">AX ${a}</span>`;
   return h;
 }
@@ -122,6 +137,13 @@ function gauge(list) {
     <div class="gauge"><span style="width:${pe}%;background:var(--navy)">외부 ${pe}%</span><span style="width:${100 - pe}%;background:var(--red)">${100 - pe ? '중랑 ' + (100 - pe) + '%' : ''}</span></div>
     <span class="muted" style="font-size:12px">제목에 중랑 지명이 들어간 호를 '중랑 현안'으로 셉니다. 통합 데스크가 매주 점검합니다.</span></div>`;
 }
+function oneMinute(it) {
+  const b = String((it && it.body) || '');
+  const m = b.match(/<div class="note">([\s\S]*?)<\/div>/) || b.match(/<p>(?:<b>)?\s*1분 읽기[\s\S]*?<\/p>(?:\s*<p>[\s\S]*?<\/p>){0,3}/);
+  if (!m) return '';
+  return String(m[1] || m[0]).replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<(?!\/?(b|p|br|strong|em|ul|li)\b)[^>]+>/g, '');
+}
+function hm(iso) { try { return new Date(iso).toLocaleTimeString('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false }); } catch (e) { return ''; } }
 function viewToday() {
   setNav('');
   const pubs = signal.filter(isPub);
@@ -135,17 +157,27 @@ function viewToday() {
   const q = (lead && lead.q) || (day.find(x => x.q) || {}).q || '';
   const [ws, we] = weekRange(state.date);
   const week = pubs.filter(x => x.d >= ws && x.d <= we && !day.includes(x));
-  const before = new Date() < new Date('2026-11-11T00:00:00+09:00');
+  const T = todayKST(), dow = new Date(T + 'T12:00:00+09:00').getDay();
+  const launch = new Date('2026-11-11T00:00:00+09:00'), before = new Date() < launch;
+  let status;
+  if (state.date !== dates[0]) status = '지난 판을 보고 있습니다 · 최신 판 ' + fmt(dates[0]);
+  else if (dates[0] === T) status = '오늘 판';
+  else if (dow === 0 || dow === 6) status = '주말 휴간 · 월요일 07:00 전 새 판';
+  else status = '오늘 판 준비 중 · 최신 판 ' + fmt(dates[0]);
+  const reflect = lead && lead.publishedAt ? '편집국 발행 ' + hm(lead.publishedAt) + ' · 편집국 직송판' : (live.signal ? '제작실 판' : '보관 스냅샷');
+  const one = oneMinute(lead);
   $('#main').innerHTML = `
-  <div class="founding-banner"><div><span class="eyebrow">${before ? 'D-' + Math.ceil((new Date('2026-11-11T00:00:00+09:00') - new Date()) / 864e5) + ' · 창간 예비호 파일럿 (10/29 ① ~ 11/10 ⑨, 평일)' : '창간 2026.11.11'}</span><br><b>중랑정책미디어 창간호 · 2026년 11월 11일(수) MORNING Vol.34</b><br><span class="muted">시그널과 아궁이가 한 지붕 아래로. 머리는 밖에서, 처방은 중랑에 · 외부 8 : 중랑 2</span></div><a class="btn" href="#/founding">창간사와 편집헌장 읽기 →</a></div>
+  <div class="datebar"><span><b>${fmt(T)} (${wd(T)})</b> 오늘</span><span>이 판 ${fmt(state.date)} (${wd(state.date)}) 발행</span><span>${esc(reflect)}</span><span class="st">${esc(status)}</span></div>
+  <div class="thinbanner"><span>${before ? '창간 D-' + Math.ceil((launch - new Date()) / 864e5) + ' · 예비호 파일럿 중' : '창간 2026.11.11'} · 창간호 11월 11일(수) MORNING Vol.34</span><a href="#/founding">창간사·편집헌장 →</a></div>
   <div class="edition">
     <button ${i >= dates.length - 1 ? 'disabled' : ''} onclick="goDate(1)">← 이전 판</button>
-    <div class="mid"><span class="eyebrow">TODAY'S EDITION</span><b>${fmt(state.date)} (${wd(state.date)}) 판</b><span class="meta">${day.length}개 발행 기록 · ${live.signal ? '제작실 실시간 연동' : '10/28 스냅샷'}</span></div>
+    <div class="mid"><span class="eyebrow">TODAY'S EDITION</span><b>${fmt(state.date)} (${wd(state.date)}) 판</b><span class="meta">${day.length}개 지면</span></div>
     <button ${i <= 0 ? 'disabled' : ''} onclick="goDate(-1)">다음 판 →</button>
   </div>
   <section class="front">
     <div class="lead">
       ${lead ? `<span class="eyebrow">${esc(seriesLabel(lead))}${lead.vol ? ' · ' + lead.vol : ''}${special(lead) ? ' · ' + special(lead) : ''} · 오늘의 촉</span>
+      ${one ? `<div class="oneminute"><span class="eyebrow">1분 읽기</span>${one}</div>` : ''}
       <h1><a href="#/read/${encodeURIComponent(lead.id)}">${esc(lead.title)}</a></h1>
       <p class="dek">${esc(lead.desc || '')}</p>
       <div>${tags(lead)}</div>
@@ -153,15 +185,15 @@ function viewToday() {
       <p style="margin-top:12px"><a class="btn" href="#/read/${encodeURIComponent(lead.id)}">본문과 출처 읽기</a></p>` : '<p>이 날의 발행 기록이 없습니다.</p>'}
     </div>
     <div class="col">
+      ${others.filter(x => x !== weekly).map(x => `<span class="eyebrow">같은 날 ${esc(seriesLabel(x))}${x.vol ? ' · ' + x.vol : ''}</span><h3 style="font-size:17px"><a href="#/read/${encodeURIComponent(x.id)}">${esc(x.title)}</a></h3><div>${tags(x)}</div><hr style="border:0;border-top:1px solid var(--line)">`).join('')}
       ${weekly ? `<span class="eyebrow">이번 주 침 · WEEKLY${weekly.vol ? ' ' + weekly.vol : ''}</span>
       <h3><a href="#/read/${encodeURIComponent(weekly.id)}">${esc(weekly.title)}</a></h3>
       <div class="meta">${fmt(weekly.d)} · 국장회의 의제</div><div>${tags(weekly)}</div>` : ''}
-      ${others.filter(x => x !== weekly).map(x => `<hr style="border:0;border-top:1px solid var(--line)"><span class="eyebrow">같은 날 ${esc(seriesLabel(x))}</span><h3 style="font-size:17px"><a href="#/read/${encodeURIComponent(x.id)}">${esc(x.title)}</a></h3>`).join('')}
     </div>
     <aside class="qpanel">
       <span class="eyebrow">JUNGNANG Q · 오늘의 질문</span>
       <div class="q">${esc(q || '오늘은 질문 하나를 남겨 두지 않았습니다.')}</div>
-      <p>답을 서둘러 만들기보다, 밖의 사례에 비추어 중랑이 물어야 할 것을 남깁니다.</p>
+      <p>답을 서둘러 만들기보다, 밖의 사례에 비추어 우리가 함께 물어볼 것을 남깁니다.</p>
       <p><a href="#/q">질문 서가 전체 →</a></p>
       <hr style="border:0;border-top:1px solid rgba(255,255,255,.25)">
       <span class="eyebrow">편집의 기준</span>
@@ -170,11 +202,38 @@ function viewToday() {
   </section>
   <h2 class="sec">이번 주의 촉과 침 <span class="en">${fmt(ws)} – ${fmt(we).slice(5)}</span></h2>
   <div class="grid">${week.map(card).join('') || '<p class="muted">이 주의 다른 발행물이 없습니다.</p>'}</div>
+  <p class="muted" style="font-size:13px;margin-top:18px">GPT 촉 레이더 후보와 출처 지도, 하루 운영 일정은 <a href="#/desk">편집실</a>에 있습니다.</p>`;
+}
+/* ---------- 편집실 ---------- */
+function srcMap(list) {
+  const pick = list.filter(it => ['MORNING', 'WEEKLY'].includes(it.series) && it.d).slice(0, 10);
+  const c = {}; for (const it of pick) for (const s of it.src) c[s.k] = (c[s.k] || 0) + s.n;
+  const tot = Object.values(c).reduce((a, b) => a + b, 0) || 1;
+  const label = k => k === '국내연구' ? '국내 연구' : k === '정부' ? '정부·공공' : k;
+  const loc = pick.filter(i => i.local).length;
+  return `<div class="note"><b>이번 주 촉의 출처 지도</b> · 최근 MORNING·WEEKLY ${pick.length}호 본문에 걸린 원문 링크의 출처 유형입니다. 어디서 밖의 소식을 읽어 왔는지 함께 보려는 지도입니다.
+    <div class="srcmap">${Object.entries(c).map(([k, n]) => `<div class="row"><span class="tag src-${k}">${label(k)}</span><span class="bar"><i style="width:${Math.round(n / tot * 100)}%"></i></span><span class="n">${n}건</span></div>`).join('') || '<span class="muted">원문 링크를 아직 읽지 못했습니다.</span>'}</div>
+    <span class="muted" style="font-size:12px">제목 기준 참고값: 밖에서 연 호 ${pick.length - loc} · 제목에 중랑 지명이 있는 호 ${loc}</span></div>`;
+}
+function viewDesk() {
+  setNav('desk');
+  const pubs = signal.filter(isPub);
+  const latest = [...new Set(pubs.map(i => i.d).filter(Boolean))].sort().reverse()[0];
+  const R = 'https://github.com/goodmorninghope-khs/jungnang-signal/blob/main/shared/';
+  $('#main').innerHTML = `
+  <span class="eyebrow">편집실 · 만드는 과정</span>
+  <h1 class="pagehead">편집실</h1>
+  <p class="muted">지면이 만들어지는 과정을 열어 둡니다. 쓴 곳 Claude 편집국 · 촉 후보와 사실 확인 GPT · 진열 Aside 통합 데스크 · 결정 발행인.</p>
   <h2 class="sec">촉 레이더 <span class="en">GPT 후보 → CLAUDE 확인</span></h2>
-  <div id="chokRadar" class="note">이 날의 GPT 촉 후보를 불러오는 중…</div>
-  <h2 class="sec">계기판 <span class="en">EDITORIAL GAUGE</span></h2>
-  ${gauge(pubs)}`;
-  loadChok(i === 0 ? todayKST() : state.date, i === 0 ? state.date : null);
+  <div id="chokRadar" class="note">GPT 촉 후보를 불러오는 중…</div>
+  <h2 class="sec">출처 지도 <span class="en">WHERE SIGNALS CAME FROM</span></h2>
+  ${srcMap(pubs)}
+  <h2 class="sec">하루 운영 <span class="en">DAILY LOOP</span></h2>
+  <ol class="loop"><li><b>전날 17:30</b> GPT 촉 레이더가 다음 발행일 후보 4개를 올립니다(공약에 닿는 소식, 원문 링크).</li><li><b>04:30</b> Claude 편집국이 MORNING을 씁니다(월·화·수 주간 지면 05:20). 먼저 발행하고, 후속은 나중에.</li><li><b>06:20</b> 통합 데스크가 사이트에 진열하고 점검합니다. 목표는 07:00 전 새 판.</li><li><b>오전</b> 사후 사실 확인·정정·기록. 정정은 이전 판을 남긴 채 표시합니다.</li></ol>
+  <h2 class="sec">함께 보는 문서 <span class="en">REFERENCES</span></h2>
+  <ul class="refs"><li><a target="_blank" rel="noopener" href="${R}pilot-experiments.md">예비호 실험표</a> · 하루 한 가지만 바꿔 봅니다</li><li><a target="_blank" rel="noopener" href="${R}launch-improvements.md">창간 전 개선 계획</a> · Claude·GPT 의견을 합친 계획</li><li><a target="_blank" rel="noopener" href="${R}reference-hub.md">공통 참조</a> · 공약 기준·지면 원본·중랑이 이미 하고 있는 일</li><li><a target="_blank" rel="noopener" href="${R}chokchim-charter.md">편집헌장</a></li></ul>`;
+  const T = todayKST();
+  loadChok(T, latest && latest !== T ? latest : null);
 }
 function todayKST() { return new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10); }
 async function loadChok(d, fallback) {
@@ -187,7 +246,7 @@ async function loadChok(d, fallback) {
     const cands = [...t.matchAll(/^###\s*(.+)$/gm)].map(m => m[1].replace(/\*\*/g, ''));
     const urls = [...t.matchAll(/https?:\/\/[^\s)>\]]+/g)].map(m => m[0]);
     box.innerHTML = '<b>' + fmt(d) + '(' + wd(d) + ') GPT 촉 레이더 후보 ' + cands.length + '건</b> · Claude 편집국이 원문을 확인해 고릅니다.<ul style="margin:6px 0 0;padding-left:18px">' + cands.map(c => '<li>' + esc(c) + '</li>').join('') + '</ul><span class="muted" style="font-size:12px">원문 링크 ' + urls.length + '개 · 원장: jungnang-signal/inbox/chok/CHOK-' + d.replace(/-/g, '') + '.md</span>';
-  } catch (e) { box.innerHTML = '<span class="muted">이 날의 GPT 촉 후보 파일이 없습니다(창간 기획단 운영은 2026-10-29부터).</span>'; }
+  } catch (e) { box.innerHTML = '<span class="muted">오늘 날짜의 GPT 촉 후보 파일이 아직 없습니다. 후보는 발행 전날 17:30에 올라옵니다(주말 휴간).</span>'; }
 }
 window.goDate = step => { const dates = [...new Set(signal.filter(isPub).map(i => i.d).filter(Boolean))].sort().reverse(); const i = dates.indexOf(state.date) + step; if (dates[i]) { state.date = dates[i]; viewToday(); } };
 
@@ -297,11 +356,13 @@ function viewShelf() {
 }
 
 /* ---------- 읽기 ---------- */
-function viewRead(id) {
+function viewRead(id, anc) {
   setNav('');
   const it = signal.find(x => x.id === id) || signal.find(x => x.id === (window.DESK_ALIAS || {})[id]);
   if (!it) { $('#main').innerHTML = '<p>기록을 찾지 못했습니다. <a href="#/shelf">서가로</a></p>'; return; }
   const body = String(it.body || '').replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
+  let sn = 0;
+  const bodyA = body.replace(/<h3(?![^>]*\bid=)([^>]*)>/g, (m, rest) => '<h3 id="s' + (++sn) + '"' + rest + '>');
   const imgs = (it.images || []).map(p => abs(PM, p));
   const vers = (it.versions || []).filter(v => v && (v.body || v.label));
   const rel = signal.filter(x => x !== it && isPub(x) && x.ax.some(a => it.ax.includes(a))).slice(0, 4);
@@ -315,14 +376,21 @@ function viewRead(id) {
     ${it.desc ? `<p style="font-family:var(--serif);font-size:18px">${esc(it.desc)}</p>` : ''}
     ${it.q ? `<div class="chimbox"><b>JUNGNANG Q</b> · ${esc(it.q)}</div>` : ''}
     ${pairOf(it.id) ? `<div class="note"><b>두 시선</b> · 같은 날 같은 지면을 다른 엔진도 냈습니다. <a href="#/fusion">융복합 통합본 「${esc(pairOf(it.id).title)}」 읽기 →</a></div>` : ''}
-    ${imgs.length ? `<div class="imgs">${imgs.map(s => `<img loading="lazy" src="${esc(s)}" alt="지면" onclick="zoomImg('${esc(s)}')">`).join('')}</div>` : ''}
-    <div class="body">${body || '<p class="muted">본문은 원본 지면에서 읽을 수 있습니다.</p>'}</div>
+    ${imgs.length ? `<div class="readtoggle" role="group" aria-label="읽는 방식"><button class="on" onclick="readMode('text')">텍스트 읽기</button><button onclick="readMode('page')">지면 보기</button></div>` : ''}
+    <div class="body" id="readBody">${bodyA || '<p class="muted">본문은 원본 지면에서 읽을 수 있습니다.</p>'}</div>
+    ${imgs.length ? `<details class="pagebox" id="pageBox"${window.innerWidth >= 900 ? ' open' : ''}><summary>지면 이미지 보기 (${imgs.length}장)</summary><div class="imgs">${imgs.map(s => `<img loading="lazy" src="${esc(s)}" alt="지면" onclick="zoomImg('${esc(s)}')">`).join('')}</div></details>` : ''}
     ${vers.length ? `<h3>이전 판본 · 정정</h3>${vers.map((v, k) => `<details><summary>${esc(v.label || '판본 ' + (k + 1))}</summary><div class="body">${v.body || ''}</div></details>`).join('')}` : ''}
     <p style="margin-top:16px">${orig}</p>
     ${rel.length ? `<div class="related"><span class="eyebrow">같은 AX2030 전략으로 이어 읽기</span><div class="grid" style="margin-top:10px">${rel.map(card).join('')}</div></div>` : ''}
   </article>`;
-  window.scrollTo(0, 0);
+  const target = anc && document.getElementById(anc);
+  if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
 }
+window.readMode = m => {
+  document.querySelectorAll('.readtoggle button').forEach((b, k) => b.classList.toggle('on', (k === 0) === (m === 'text')));
+  if (m === 'page') { const d = document.getElementById('pageBox'); if (d) { d.open = true; d.scrollIntoView({ behavior: 'smooth' }); } }
+  else { const b = document.getElementById('readBody'); if (b) b.scrollIntoView({ behavior: 'smooth' }); }
+};
 
 /* ---------- 창간호 ---------- */
 function viewFounding() {
@@ -445,13 +513,14 @@ function viewFusion() {
 /* ---------- 라우터 ---------- */
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
-  if (h.startsWith('read/')) return viewRead(h.slice(5));
+  if (h.startsWith('read/')) { const [rid, anc] = h.slice(5).split('/'); return viewRead(rid, anc); }
   if (h === 'chok') return viewChok();
   if (h === 'chim') return viewChim();
   if (h === 'q') return viewQ();
   if (h === 'fusion') return viewFusion();
   if (h === 'shelf') return viewShelf();
   if (h === 'founding') return viewFounding();
+  if (h === 'desk') return viewDesk();
   return viewToday();
 }
 window.addEventListener('hashchange', () => { route(); if (!location.hash.includes('read/')) window.scrollTo(0, 0); });
