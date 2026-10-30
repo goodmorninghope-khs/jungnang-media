@@ -1,6 +1,7 @@
 /* 중랑정책미디어 · JUNGNANG SIGNAL × 아궁이
    진열: Aside 통합 데스크 / 원본 제작실: GPT 사이트(실시간 연동) / 원장: GitHub jungnang-signal */
 'use strict';
+window.DESK_ALIAS = window.DESK_ALIAS || {}; // 편집국 직송판 id → 제작실 판 id (같은 지면·날짜)
 
 const PM = 'https://jungnang-policy-media.goodmorninghope.chatgpt.site';
 const AA = 'https://jungnang-agungi-archive.goodmorninghope.chatgpt.site';
@@ -70,6 +71,7 @@ async function loadLive() {
       const j = await r.json(); const desk = Array.isArray(j) ? j : (j.items || []);
       const key = it => (it.series || '') + '|' + nd(it.date);
       const have = new Set(signal.map(key));
+      for (const it of desk) { if (it && it.id && have.has(key(it))) { const hit = signal.find(x => key(x) === key(it)); if (hit && hit.id !== it.id) window.DESK_ALIAS[it.id] = hit.id; } }
       const add = desk.filter(it => it && it.series && it.date && !have.has(key(it)));
       if (add.length) { signal = enrich(add).concat(signal).sort((a, b) => (b.d || '0').localeCompare(a.d || '0')); live.signal = true; live.desk = add.length; }
     }
@@ -297,7 +299,7 @@ function viewShelf() {
 /* ---------- 읽기 ---------- */
 function viewRead(id) {
   setNav('');
-  const it = signal.find(x => x.id === id);
+  const it = signal.find(x => x.id === id) || signal.find(x => x.id === (window.DESK_ALIAS || {})[id]);
   if (!it) { $('#main').innerHTML = '<p>기록을 찾지 못했습니다. <a href="#/shelf">서가로</a></p>'; return; }
   const body = String(it.body || '').replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ');
   const imgs = (it.images || []).map(p => abs(PM, p));
