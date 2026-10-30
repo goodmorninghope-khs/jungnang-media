@@ -10,6 +10,8 @@ const AXL = SNAP.ledger.ax2030_legend || {};
 const LOCAL_RE = /중랑|면목|상봉|망우|사가정|묵동|신내|중화동|용마|먹골/;
 
 let signal = [], aa = [], ledger = SNAP.ledger.items || [], live = { signal: false, aa: false };
+let TWIN = []; // 쌍둥이 매체 중랑브리핑 기사(안에서 본 소식)
+const BRIEF_URL = 'https://jungnang-briefing.vercel.app/';
 let PMAP = { items: [] }, TRACE = { stages: [], items: [] }, CORR = { items: [] }; // 공약 서가 · 침의 행방 · 정정 대장 (data/)
 const state = { date: null, chokSeries: '전체', chokSrc: '전체', chokQ: '', qAx: '전체', shelfSeries: '전체', shelfQ: '' };
 
@@ -72,6 +74,25 @@ function enrich(list) {
       img: (it.images && it.images[0]) ? abs(PM, it.images[0]) : (it.thumb ? abs(PM, it.thumb) : '')
     });
   }).sort((a, b) => (b.d || '0').localeCompare(a.d || '0'));
+}
+
+async function loadTwin() {
+  try {
+    const r = await fetch('/feed/brief.js', { cache: 'no-store' });
+    if (!r.ok) return;
+    const t = await r.text(); const s = t.indexOf('{', t.indexOf('window.BRIEF')); const e = t.lastIndexOf('}');
+    const j = JSON.parse(t.slice(s, e + 1));
+    TWIN = (j.articles || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || '') || String(b.id).localeCompare(String(a.id)));
+  } catch (e) { }
+}
+const twinIn = v => TWIN.filter(a => (a.vision || []).includes(v));
+const twinLi = a => `<li><a href="${BRIEF_URL}#/a/${encodeURIComponent(a.id)}" target="_blank" rel="noopener">${esc(a.title)}</a> <span class="muted">${esc((a.date || '').replace(/-/g, '.'))} · 중랑브리핑</span></li>`;
+function twinToday() {
+  if (!TWIN.length) return '';
+  return `<section class="twinbox"><h2 class="sec">안에서 본 중랑 <span class="en">쌍둥이 매체 · 중랑브리핑</span></h2>
+  <p class="secDesc">밖을 읽는 망원경(중랑정책미디어)과 안을 비추는 창문(중랑브리핑)은 같은 날줄, 민선9기 공약 7대 비전 위에 섭니다. 침은 중랑이 이미 하고 있는 일에서 출발합니다. 그 일의 원문 기록이 브리핑입니다.</p>
+  <ul class="plist">${TWIN.slice(0, 4).map(twinLi).join('')}</ul>
+  <p class="muted" style="font-size:13px"><a href="${BRIEF_URL}" target="_blank" rel="noopener">중랑브리핑 첫 화면 ↗</a> · <a href="#/pledge">공약 서가에서 안과 밖을 함께 보기</a></p></section>`;
 }
 
 async function loadLive() {
@@ -217,6 +238,7 @@ function viewToday() {
   </section>
   <h2 class="sec">이번 주의 촉과 침 <span class="en">${fmt(ws)} – ${fmt(we).slice(5)}</span></h2>
   <div class="grid">${week.map(card).join('') || '<p class="muted">이 주의 다른 발행물이 없습니다.</p>'}</div>
+  ${twinToday()}
   <p class="muted" style="font-size:13px;margin-top:18px">GPT 촉 레이더 후보와 출처 지도, 하루 운영 일정은 <a href="#/desk">편집실</a>에 있습니다.</p>`;
 }
 /* ---------- 편집실 ---------- */
@@ -576,7 +598,7 @@ function viewPledge() {
   <h2 class="sec">공약 서가 <span class="en">PLEDGE SHELF · 민선9기 7대 비전</span></h2>
   <p class="secDesc">지면이 어느 공약과 이어지는지 모아 보는 서가입니다. 공약의 이행을 판정하지 않습니다. 10월 분류는 GPT 외부고문 1차 분류이며 편집국 확인 전입니다. 11월 2일 판부터는 지면의 '닿는 공약' 표시를 그대로 씁니다.</p>
   <p class="muted">중랑이 이미 하고 있는 일은 <a target="_blank" rel="noopener" href="https://github.com/goodmorninghope-khs/jungnang-signal/blob/main/shared/reference-hub.md">공통 참조(reference-hub)</a>에 원문과 함께 모읍니다.</p>
-  ${PLEDGE.map((p, k) => `<section class="shelfv"><h3>${'①②③④⑤⑥⑦'[k]} ${esc(PLEDGE_FULL[k])}</h3>${groups[k].length ? `<ul class="plist">${sortD(groups[k]).map(mini).join('')}</ul>` : '<p class="muted">이어진 지면을 모으는 중입니다.</p>'}</section>`).join('')}
+  ${PLEDGE.map((p, k) => `<section class="shelfv"><h3>${'①②③④⑤⑥⑦'[k]} ${esc(PLEDGE_FULL[k])}</h3><div class="twincols"><div><b class="twinlbl">밖에서 본 길 · 중랑정책미디어</b>${groups[k].length ? `<ul class="plist">${sortD(groups[k]).map(mini).join('')}</ul>` : '<p class="muted">이어진 지면을 모으는 중입니다.</p>'}</div><div><b class="twinlbl">안에서 본 소식 · 중랑브리핑</b>${twinIn(k + 1).length ? `<ul class="plist">${twinIn(k + 1).slice(0, 5).map(twinLi).join('')}</ul><a class="muted" style="font-size:13px" href="${BRIEF_URL}#/s/${k + 1}" target="_blank" rel="noopener">이 비전의 브리핑 ${twinIn(k + 1).length}건 모두 ↗</a>` : '<p class="muted">브리핑 기사를 모으는 중입니다.</p>'}</div></div></section>`).join('')}
   <section class="shelfv ax"><h3>AX2030 · 공통 실행수단</h3><p class="muted">AX는 일곱 비전을 함께 받치는 수단으로 따로 모읍니다.</p>${axG.length ? `<ul class="plist">${sortD(axG).map(mini).join('')}</ul>` : ''}</section>`;
   window.scrollTo(0, 0);
 }
@@ -635,7 +657,7 @@ window.addEventListener('hashchange', () => { route(); if (!location.hash.includ
   signal = enrich(SNAP.signal || []); aa = SNAP.aa || [];
   route();
   const autoDate = state.date;
-  await loadLive();
+  await Promise.all([loadLive(), loadTwin()]);
   if (live.signal && state.date === autoDate) state.date = null; // 실시간 데이터가 오면 최신 판으로
-  if (live.signal || live.aa) route();
+  route();
 })();
