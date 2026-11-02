@@ -193,6 +193,13 @@ function viewToday() {
   const q = (lead && lead.q) || (day.find(x => x.q) || {}).q || '';
   const [ws, we] = weekRange(state.date);
   const week = pubs.filter(x => x.d >= ws && x.d <= we && !day.includes(x));
+  /* 이번 주 판이 적을 때 지난 촉과 침으로 채운다 (발행인 제안 2026-11-02) */
+  const FILL_TO = 6;
+  const pool = pubs.filter(x => x.d && x.d < ws && !day.includes(x) && x !== weekly).sort((a, b) => b.d.localeCompare(a.d));
+  const needN = Math.max(0, FILL_TO - week.length);
+  const chimPool = pool.filter(x => role(x) === '침'), chokPool = pool.filter(x => role(x) !== '침');
+  const chimPick = chimPool.slice(0, Math.min(2, needN));
+  const backfill = chimPick.concat(chokPool.slice(0, needN - chimPick.length)).sort((a, b) => b.d.localeCompare(a.d));
   const T = todayKST(), dow = new Date(T + 'T12:00:00+09:00').getDay();
   const launch = new Date('2026-11-11T00:00:00+09:00'), before = new Date() < launch;
   let status;
@@ -237,7 +244,8 @@ function viewToday() {
     </aside>
   </section>
   <h2 class="sec">이번 주의 촉과 침 <span class="en">${fmt(ws)} – ${fmt(we).slice(5)}</span></h2>
-  <div class="grid">${week.map(card).join('') || '<p class="muted">이 주의 다른 발행물이 없습니다.</p>'}</div>
+  ${week.length ? `<div class="grid">${week.map(card).join('')}</div>` : ''}
+  ${backfill.length ? `<p class="muted" style="margin:${week.length ? '18px' : '4px'} 0 10px">${week.length ? '<span class="eyebrow">지난 촉과 침 · 다시 읽기</span> ' : ''}이번 주 판이 쌓이는 동안, 지난 촉과 침을 함께 펼쳐 둡니다.</p><div class="grid">${backfill.map(card).join('')}</div>` : (week.length ? '' : '<p class="muted">이 주의 다른 발행물이 없습니다.</p>')}
   ${twinToday()}
   <p class="muted" style="font-size:13px;margin-top:18px">GPT 촉 레이더 후보와 출처 지도, 하루 운영 일정은 <a href="#/desk">편집실</a>에 있습니다.</p>`;
 }
