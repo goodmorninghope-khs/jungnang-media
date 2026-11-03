@@ -99,6 +99,39 @@
    "when": "2026-11-03 MORNING 제28호 정정판(05:00) 텍스트판",
    "prev_version_link": "#/read/morning-20261102",
    "source": "MORNING 제28호 정정판(05:00) 텍스트판"
+  },
+  {
+   "date": "2026-11-04",
+   "edition_id": "morning-20261103",
+   "kind": "보탬",
+   "what": "제28호 s1",
+   "how": "비전문 인력 14명은 간호사·간호조무사·CT 기사였고, 3명은 첫 촬영 검토 뒤 재교육을 받았으며, 영상은 듀크 임상연구소 코어랩의 초음파 전문가·심장초음파 인증 의사가 검토했습니다. '사흘 안 회신'은 연구의 관찰값이며, 1분 읽기의 침은 '중랑의 기존 건강관리 절차에서 측정 결과를 누가 어떤 기준으로 설명하는지 주민이 쉽게 알 수 있는지 살펴보기'로 읽어 주시면 좋겠습니다.",
+   "why": "GPT 외부고문 사후 의견(11.3 21:05)을 편집국이 원문과 다시 대조함 · 근거: American Heart Association, 2026-11-02, https://newsroom.heart.org/news/non-experts-with-ai-guidance-and-off-site-review-perform-quality-mobile-rural-heart-scans",
+   "when": "2026-11-04 MORNING 제29호(04:46) 텍스트판",
+   "prev_version_link": "#/read/morning-20261103",
+   "source": "2026-11-04 MORNING 제29호(04:46) 텍스트판"
+  },
+  {
+   "date": "2026-11-04",
+   "edition_id": "morning-20261103",
+   "kind": "보탬",
+   "what": "제28호 s3",
+   "how": "정정판의 '고소득 지역'은 원문의 \"사회경제적으로 유리한 동네\"를 줄인 말입니다. 원문 그대로는 \"사회경제적으로 유리한 일부 동네에서는 실측 보행성이 높아도 주민 체감은 낮았고, 불리한 일부 동네에서는 반대 양상이 나타났다\"입니다. 침의 체감 문항도 \"이 구간을 걸을 때 편한 점과 불편한 점은 무엇인가요?\"처럼 중립적으로 묻는 편이 낫겠습니다.",
+   "why": "Penn State News, 2026-10-29, https://www.psu.edu/news/earth-and-mineral-sciences/story/resident-experience-matters-estimating-neighborhood-walkability · 03_발행본 문서는 처음 판 보존",
+   "when": "2026-11-04 MORNING 제29호(04:46) 텍스트판",
+   "prev_version_link": "#/read/morning-20261103",
+   "source": "2026-11-04 MORNING 제29호(04:46) 텍스트판"
+  },
+  {
+   "date": "2026-11-04",
+   "edition_id": "morning-20261030",
+   "kind": "보탬",
+   "what": "제26호 s1(morning-20261030-s1)",
+   "how": "정책브리핑 정책뉴스(10.30)는 대상을 '거동이 불편한 어르신, 장애인, 섬·벽지 주민 등'으로 적고, 집배원이 건강·주거·위생 상태를 살펴 관할 시군구에 알리면 시군구가 추가 복지 상담 필요 여부를 판단한다고 밝혔다. 그냥드림 누적 이용 약 33만 명·복지 상담 7만 830명·지역 보호체계 연계 7,383명.",
+   "why": "편집국이 원문과 다시 대조함 · 근거: 정책브리핑 2026-10-30, https://m.korea.kr/news/policyNewsView.do?newsId=148974616",
+   "when": "2026-11-04 WEEKLY 제5호(05:28) 텍스트판",
+   "prev_version_link": "#/read/morning-20261030",
+   "source": "2026-11-04 WEEKLY 제5호(05:28) 텍스트판"
   }
  ]
 }
