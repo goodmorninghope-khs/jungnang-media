@@ -220,3 +220,85 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid 
 .twinbox{border-top:3px solid #006939;margin-top:26px;padding-top:4px}
 .nav a.twinlink{color:#006939;font-weight:700}
 @media (max-width:900px){.twincols{grid-template-columns:1fr}}
+
+/* ==========================================================
+   2026.11 리디자인 (MotionSites Web Builder 원칙)
+   신문 정체성은 지키고, 첫 화면에서 '오늘의 머리기사'가 먼저 보이게.
+   색은 종이·남색·회색 + 포인트 하나(빨강). 큰 글자, 넉넉한 여백, 절제된 움직임.
+   ========================================================== */
+:root{--ease:cubic-bezier(.22,1,.36,1);--r:10px}
+::selection{background:rgba(196,63,38,.22)}
+html{overflow-x:clip}
+/* 제호: 더 크게, 더 촘촘하게 */
+.masthead{padding-top:10px}
+.topline{font-size:12.5px;padding-bottom:8px}
+.brand{margin-top:clamp(14px,2vw,22px)}
+.kicker{font-size:12px;letter-spacing:.42em;font-weight:700;color:var(--red)}
+.logo{font-size:clamp(44px,9vw,128px);line-height:.92;letter-spacing:-.045em;margin-top:6px}
+.logo i{letter-spacing:-.05em}
+.logo small{font-size:.24em;letter-spacing:-.01em;vertical-align:.9em;margin-left:.3em}
+.mottoRow{margin-top:12px;padding-bottom:12px;border-bottom-width:3px}
+.motto{font-size:clamp(16px,1.6vw,20px);letter-spacing:-.02em}
+.nav{gap:4px 24px;padding:13px 0;font-size:14.5px}
+.nav a{transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--red)}
+/* 판 정보: 세 줄을 한 띠로 */
+.datebar{border-bottom:0;margin-bottom:0;padding:12px 0 6px}
+.thinbanner{background:transparent;border-left:0;padding:0 0 12px;margin:0 0 4px;border-bottom:1px solid var(--line);color:var(--muted)}
+.thinbanner a{color:var(--red)}
+.edition{grid-template-columns:auto 1fr auto;border:0;border-bottom:1px solid var(--line);background:transparent;margin:0 0 clamp(22px,3vw,34px);text-align:left;align-items:center}
+.edition .mid{border:0;padding:14px 0;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;justify-content:center}
+.edition .mid b{display:inline;font-size:clamp(18px,1.8vw,22px)}
+.edition button{padding:10px 4px;font-size:14px;font-weight:700;transition:color .2s}
+.edition button:not(:disabled):hover{color:var(--red)}
+/* 1면: 머리기사가 먼저, 1분 읽기는 그 아래 */
+.front{gap:clamp(24px,3vw,40px)}
+.lead{display:flex;flex-direction:column}
+.lead>h1{order:1}
+.lead>.dek{order:2}
+.lead>div:not([class]){order:3;margin-top:6px}
+.lead>.meta{order:4}
+.lead>.oneminute{order:5;margin-top:18px}
+.lead>p:last-child{order:6}
+.lead h1{font-size:clamp(32px,4.4vw,60px);line-height:1.14;letter-spacing:-.035em;margin:12px 0 16px;text-wrap:balance}
+.lead h1 a{background-image:linear-gradient(var(--red),var(--red));background-size:0 2px;background-position:0 96%;background-repeat:no-repeat;transition:background-size .5s var(--ease)}
+.lead h1 a:hover{background-size:100% 2px}
+.lead .dek{font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#3d4556}
+.oneminute{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:14px 18px}
+.col h3{letter-spacing:-.02em}
+.col h3 a,.card h4 a{transition:color .2s}
+.col h3 a:hover,.card h4 a:hover{color:var(--red)}
+.qpanel{border-radius:var(--r);padding:26px 24px;box-shadow:0 18px 40px rgba(24,38,74,.18)}
+.qpanel .q{font-size:clamp(20px,1.9vw,25px);letter-spacing:-.02em}
+/* 섹션 머리 */
+h2.sec{font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;margin:clamp(48px,6vw,72px) 0 8px;padding-top:16px;border-top:3px solid var(--navy)}
+/* 카드 */
+.card,.family{border-radius:var(--r);transition:transform .3s var(--ease),box-shadow .3s}
+.card:hover,.family:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(24,38,74,.10)}
+.card{padding:16px 18px 18px}
+.card img{border-radius:6px}
+.card h4{font-size:19px;letter-spacing:-.02em}
+.btn{border-radius:999px;padding:7px 16px;transition:background .2s,color .2s,transform .15s}
+.btn:active{transform:scale(.97)}
+.chip{transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--navy)}
+.search{border-radius:999px;padding:12px 18px}
+.room div,.note,.chimbox{border-radius:var(--r)}
+/* 읽기 화면 */
+.reader h1{letter-spacing:-.03em;line-height:1.22}
+/* 첫 화면 등장: 머리기사만 살짝 */
+@media (prefers-reduced-motion:no-preference){
+  .lead h1,.lead .dek{animation:rise .8s var(--ease) both}
+  .lead .dek{animation-delay:.1s}
+  .qpanel{animation:rise .8s var(--ease) .18s both}
+}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (max-width:600px){
+  .logo{font-size:clamp(34px,11.6vw,48px)}
+  .kicker{letter-spacing:.3em}
+  .edition .mid{padding:10px 0;gap:6px}
+  .lead h1{font-size:30px}
+  h2.sec{font-size:24px}
+}
+.logo{font-size:clamp(34px,7.9vw,100px);white-space:nowrap}
+@media (max-width:600px){.logo{font-size:clamp(30px,8.6vw,40px)}}
