@@ -53,12 +53,27 @@ const isPub = it => !['제작 기록'].includes(it.series);
 const PLEDGE = ['교육', '경제·도시개발', '동북권 교통', '주거환경', '문화', '복지', '걷기'];
 const PLEDGE_KW = [/교육/, /경제|도시개발|일자리|골목|상권/, /교통/, /주거|주택|정비/, /문화/, /복지|돌봄/, /걷기|보행|걷는/];
 function pledgesOf(it) {
+  /* 2026-11-04 고침: 지면이 적은 pledges 배열을 먼저 믿는다. 배열이 없을 때만 본문을 읽되, '날줄 공약N'을 우선하고
+     '닿는 공약' 뒤 구간은 '씨줄'·'|'·'신호 id' 앞에서 자르고 'AX①' 같은 씨줄 번호는 공약 번호로 읽지 않는다. */
   const set = new Set();
-  const add = v => { const n = typeof v === 'number' ? v : (/^[1-7]$/.test(String(v)) ? +v : ('①②③④⑤⑥⑦'.indexOf(String(v)) + 1) || (PLEDGE.findIndex(p => String(v).includes(p.split('·')[0])) + 1)); if (n >= 1 && n <= 7) set.add(n); };
+  const add = v => {
+    let n = 0;
+    if (typeof v === 'number') n = v;
+    else {
+      const s = String(v ?? '').trim();
+      if (/^[1-7]$/.test(s)) n = +s;
+      else if (/^[①②③④⑤⑥⑦]$/.test(s)) n = '①②③④⑤⑥⑦'.indexOf(s) + 1;
+      else { const m = s.match(/공약\s*([1-7])/); n = m ? +m[1] : PLEDGE_KW.findIndex(re => re.test(s)) + 1; }
+    }
+    if (n >= 1 && n <= 7) set.add(n);
+  };
   if (Array.isArray(it.pledges)) it.pledges.forEach(add);
+  if (set.size) return [...set].sort();
   const txt = plain(it.body || '') + ' ' + (it.desc || '');
+  for (const m of txt.matchAll(/날줄\s*공약\s*([1-7])/g)) set.add(+m[1]);
+  if (set.size) return [...set].sort();
   for (const m of txt.matchAll(/닿는\s*공약\s*[:：]?\s*([^.\n]{1,60})/g)) {
-    const seg = m[1];
+    const seg = m[1].split(/씨줄|\||신호\s*id/)[0].replace(/AX\s*[①②③④⑤⑥⑦]/g, '');
     for (const ch of seg.matchAll(/[①②③④⑤⑥⑦]/g)) add(ch[0]);
     if (!/[①②③④⑤⑥⑦]/.test(seg)) PLEDGE_KW.forEach((re, k) => { if (re.test(seg)) set.add(k + 1); });
   }
@@ -95,23 +110,41 @@ function twinToday() {
   <p class="muted" style="font-size:13px"><a href="${BRIEF_URL}" target="_blank" rel="noopener">중랑브리핑 첫 화면 ↗</a> · <a href="#/pledge">공약 서가에서 안과 밖을 함께 보기</a></p></section>`;
 }
 
+const bigr = s => { const t = String(s || '').replace(/\s+/g, ''); const b = new Set(); for (let i = 0; i < t.length - 1; i++) b.add(t.slice(i, i + 2)); return b; };
+const simTitle = (a, b) => { const A = bigr(a), B = bigr(b); if (!A.size || !B.size) return 0; let n = 0; A.forEach(x => { if (B.has(x)) n++; }); return n / Math.min(A.size, B.size); };
 async function loadLive() {
+  let feed = null, desk = [];
   try {
     const r = await fetch('/feed/signal.json', { cache: 'no-store' });
-    if (r.ok) { const j = await r.json(); if (Array.isArray(j) && j.length) { signal = enrich(j); live.signal = true; } }
+    if (r.ok) { const j = await r.json(); if (Array.isArray(j) && j.length) feed = j; }
   } catch (e) { }
-  /* 편집국 직송판: Claude 편집국이 새벽에 올린 판(data/editions.json)을 제작실 반영 전에 먼저 진열한다. 같은 지면·날짜가 제작실에 들어오면 제작실 판을 쓴다. */
+  /* 편집국 직송판: Claude 편집국이 새벽에 올린 판(data/editions.json)을 제작실 반영 전에 먼저 진열한다.
+     2026-11-04 고침: 같은 지면(같은 지면 종류·날짜, 같은 날 여럿이면 제목이 가장 닮은 것)이 제작실에 들어와도
+     본문·제목·공약은 편집국 판(정정판 포함)을 쓰고, 제작실에만 있는 칸(그림·링크 등)은 남긴다. 주소는 제작실 id를 그대로 쓴다. */
   try {
     const r = await fetch('/data/editions.json', { cache: 'no-store' });
-    if (r.ok) {
-      const j = await r.json(); const desk = Array.isArray(j) ? j : (j.items || []);
-      const key = it => (it.series || '') + '|' + nd(it.date);
-      const have = new Set(signal.map(key));
-      for (const it of desk) { if (it && it.id && have.has(key(it))) { const hit = signal.find(x => key(x) === key(it)); if (hit && hit.id !== it.id) window.DESK_ALIAS[it.id] = hit.id; } }
-      const add = desk.filter(it => it && it.series && it.date && !have.has(key(it)));
-      if (add.length) { signal = enrich(add).concat(signal).sort((a, b) => (b.d || '0').localeCompare(a.d || '0')); live.signal = true; live.desk = add.length; }
-    }
+    if (r.ok) { const j = await r.json(); desk = (Array.isArray(j) ? j : (j.items || [])).filter(it => it && it.id && it.series && it.date); }
   } catch (e) { }
+  const key = it => (it.series || '') + '|' + nd(it.date);
+  const byDate = (a, b) => (b.d || '0').localeCompare(a.d || '0');
+  if (feed) {
+    const add = [];
+    for (const it of desk) {
+      const same = feed.filter(x => key(x) === key(it));
+      const best = same.map(x => [x, simTitle(x.title, it.title)]).sort((a, b) => b[1] - a[1])[0];
+      if (best && (same.length === 1 || best[1] >= 0.3)) {
+        const h = best[0];
+        if (h.id !== it.id) window.DESK_ALIAS[it.id] = h.id;
+        Object.assign(h, it, { id: h.id, deskId: it.id });
+      } else add.push(it);
+    }
+    signal = enrich(add.concat(feed)); live.signal = true;
+    if (add.length) { signal.sort(byDate); live.desk = add.length; }
+  } else if (desk.length) {
+    const have = new Set(signal.map(key));
+    const add = desk.filter(it => !have.has(key(it)));
+    if (add.length) { signal = enrich(add).concat(signal).sort(byDate); live.signal = true; live.desk = add.length; }
+  }
   for (const [f, set] of [['pledge-map', v => PMAP = v], ['chim-trace', v => TRACE = v], ['corrections', v => CORR = v]]) {
     try { const r = await fetch('/data/' + f + '.json', { cache: 'no-store' }); if (r.ok) set(await r.json()); } catch (e) { }
   }
