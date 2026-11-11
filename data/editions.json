@@ -1,5 +1,131 @@
 [
  {
+  "id": "morning-20261111",
+  "series": "MORNING",
+  "date": "2026.11.11",
+  "title": "도쿄도, 가게 한 곳이 아니라 '동네 묶음'에 관광 AI 보조금",
+  "topic": "문화 · 민생과 산업",
+  "desc": "도쿄도는 가게 한 곳이 아니라 사업자 2곳 이상의 '동네 묶음'에 관광 AI 보조금을 준다 — 닿는 공약 비전·문화.",
+  "minute": [
+   "도쿄도는 가게 한 곳이 아니라 사업자 2곳 이상의 '동네 묶음'에 관광 AI 보조금을 준다 — 닿는 공약 비전·문화.",
+   "중랑 다섯 시장·골목이 잇달아 연 야간축제에, 이미 모이는 숫자를 함께 모아 보는 일을 더해 볼 수 있겠습니다(편집국 의견).",
+   "함께 생각해 볼 것: 이미 갖춘 것이 필요한 순간, 필요한 사람에게 쓰이는지 무엇으로 알아볼까요?"
+  ],
+  "pledges": [
+   "비전·문화",
+   "비전·복지",
+   "비전·교통"
+  ],
+  "weave": [
+   "AX②×공약5",
+   "AX③×공약6",
+   "AX①×공약3"
+  ],
+  "signals": [
+   {
+    "id": "s1",
+    "title": "도쿄도, 가게 한 곳이 아니라 '동네 묶음'에 관광 AI 보조금",
+    "pledge": "비전·문화",
+    "ax": "AX②",
+    "link_type": "보완 제안",
+    "src_type": "해외 정부 원문",
+    "url": "https://www.metro.tokyo.lg.jp/information/press/2026/11/2026110405",
+    "published": "2026-11-04"
+   },
+   {
+    "id": "s2",
+    "title": "싱가포르, 심정지 이웃에게 달려갈 시민 28만 명을 앱으로 잇는다",
+    "pledge": "비전·복지",
+    "ax": "AX③",
+    "link_type": "이행방식 개선",
+    "src_type": "해외 정부 원문",
+    "url": "https://www.moh.gov.sg/newsroom/speech-by-professor-kenneth-mak--director-general-of-health--ministry-of-health--at-the-citizen-life-saving-summit-/",
+    "published": "2026-11-09"
+   },
+   {
+    "id": "s3",
+    "title": "앞으로 10년 철도 밑그림, 13일까지 국민 의견을 받는다",
+    "pledge": "비전·교통",
+    "ax": "AX①",
+    "link_type": "이행방식 개선",
+    "src_type": "국내 정부 원문",
+    "url": "https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788328",
+    "published": "2026-11-08"
+   }
+  ],
+  "versions": [],
+  "images": [
+   "https://jungnang-media.vercel.app/data/morning-20261111.webp"
+  ],
+  "body": "<h2>MORNING SIGNAL</h2>\n<p>중랑정책미디어 창간호 · 2026년 11월 11일 창간</p>\n<p>제34호 · Vol.34 · 2026.11.11 수요일</p>\n<p>중랑정책미디어 창간호 · 2026.11.11(수) · 밖에서의 촉이, 중랑을 건강하게 하는 침으로</p>\n<p><b>1분 읽기</b></p>\n<p>· 도쿄도는 가게 한 곳이 아니라 사업자 2곳 이상의 '동네 묶음'에 관광 AI 보조금을 준다 — 닿는 공약 비전·문화.</p>\n<p>· 중랑 다섯 시장·골목이 잇달아 연 야간축제에, 이미 모이는 숫자를 함께 모아 보는 일을 더해 볼 수 있겠습니다(편집국 의견).</p>\n<p>· 함께 생각해 볼 것: 이미 갖춘 것이 필요한 순간, 필요한 사람에게 쓰이는지 무엇으로 알아볼까요?</p>\n<p><b>창간의 말</b></p>\n<p>밖에서 읽고, 중랑에 건넵니다. 중랑정책미디어는 국내외의 연구와 다른 도시의 실천을 아침마다 읽어, 우리 일에 붙여 볼 작은 생각을 나누는 정책 미디어입니다. 시선의 여덟은 밖으로, 둘은 중랑에 적용해 보는 편집국의 의견에 둡니다. 답을 먼저 내기보다 함께 물을 질문을 나누는 물음공동체가 되려 하며, 예비호 아홉 번으로 맞춘 손발 그대로 호수를 이어 갑니다.</p>\n<h3>머리 · 해외 정부 원문 — 도쿄도, 가게 한 곳이 아니라 '동네 묶음'에 관광 AI 보조금</h3>\n<p class=\"muted\">닿는 공약 · 비전·문화 · 씨줄 AX② · 날줄 공약5(문화) · 신호 id: morning-20261111-s1</p>\n<p><b>부제</b> 사업자 2곳 이상 지역 그룹에 비용 절반, 최대 4,000만 엔. 혼잡 정보를 보여 주고 손님이 주변을 돌게 하는 일이 첫 예시다</p>\n<p><b>촉</b> 도쿄도 산업노동국은 11월 4일, AI 등 첨단기술로 관광지의 부가가치를 높이는 사업의 보조금 추가 모집을 시작했습니다. 대상은 도내 사업자 2곳 이상으로 꾸린 지역 그룹이고, 비용의 2분의 1 이내에서 최대 4,000만 엔을 지원합니다. 12월 11일까지 받고 2건을 고를 예정이며, 신청하려면 11월 27일까지 예약한 개별 설명회에 참석해야 합니다.</p>\n<p><b>읽기</b> 보조 단위를 '가게'가 아니라 '묶음'으로 잡았습니다. 원문이 든 예는 AI·IoT로 혼잡 정보를 보여 줘 손님이 주변을 돌며 붐빔을 덜게 하는 일, 생체인증 무현금·무표 입장, 공통 전자 패스의 가격 조정, XR 관광 콘텐츠입니다. 기계·시스템 도입비와 함께 전문가 지도비(기술·마케팅)도 지원하고, 사업 기간은 교부 결정 뒤 1년 이내입니다. 한계: 이제 모집을 연 사업이라 성과 자료가 나오기 전이고, 총예산은 원문에 없습니다.</p>\n<p><b>옮겨 볼 조건</b> 혼자 신청할 수 없고 둘 이상이 함께 계획을 내야 하며, 비용의 절반은 그룹이 부담합니다. 도쿄도는 광역 단위이고 관광 수요도 중랑과 다릅니다. 옮겨 볼 것은 규모가 아니라 '그룹 신청·사전 설명회·전문가 지도비'라는 설계입니다.</p>\n<p><b>침 · 중랑에 적용한다면(편집국 의견)</b> 중랑은 10월 23-31일 봉우·동부·동원·태릉 시장과 양원숲길 골목형상점가가 야간축제를 잇달아 열었고, 양원숲길은 책나들이와 영수증 행사를 곁들였습니다(10.23 구 발표). 공약5(문화)와 시장이 함께한 이 이어 달리기를 AX②(민생과 산업)로 이어 보면, 다음 축제 때 시장끼리 이미 모이는 숫자(영수증 행사 참여 같은)를 시간대별로 함께 모아 들여다보는 일부터 시작해 볼 수 있겠습니다. 예산·권한 검토 전의 제안이며, 개인 식별 정보는 다루지 않는 범위입니다.</p>\n<p><b>닿는 공약</b> 비전·문화 · 연계 유형 보완 제안</p>\n<p><b>원문</b> 東京都 産業労働局, 「AI等先端技術を活用した観光地の高付加価値化を支援 補助金の追加募集を開始します」, 발표 2026-11-04, <a href=\"https://www.metro.tokyo.lg.jp/information/press/2026/11/2026110405\" target=\"_blank\" rel=\"noopener\">https://www.metro.tokyo.lg.jp/information/press/2026/11/2026110405</a></p>\n<p><b>교차 확인</b> 産業労働局 보도 페이지 <a href=\"https://www.sangyo-rodo.metro.tokyo.lg.jp/information/press/2026/11/2026110402\" target=\"_blank\" rel=\"noopener\">https://www.sangyo-rodo.metro.tokyo.lg.jp/information/press/2026/11/2026110402</a></p>\n<p><b>중랑 실천 근거</b> 중랑구 보도자료(2026-10-23) <a href=\"https://www.jungnang.go.kr/portal/bbs/view/B0000151/168166.do?menuNo=200474\" target=\"_blank\" rel=\"noopener\">https://www.jungnang.go.kr/portal/bbs/view/B0000151/168166.do?menuNo=200474</a> · 중랑브리핑 <a href=\"https://jungnang-briefing.vercel.app/#/a/168166\" target=\"_blank\" rel=\"noopener\">https://jungnang-briefing.vercel.app/#/a/168166</a></p>\n<p><b>다르게 볼 수도 있는 점</b> 원문 예시 가운데 생체인증 입장과 가격 조정은 개인정보와 가격 공정성의 물음을 함께 부릅니다. 옮겨 본다면 혼잡 정보를 나누는 쪽처럼 주민에게 부담이 적은 데서 출발하는 편이 낫겠습니다.</p>\n<h3>둘째 · 해외 정부 원문 — 싱가포르, 심정지 이웃에게 달려갈 시민 28만 명을 앱으로 잇는다</h3>\n<p class=\"muted\">닿는 공약 · 비전·복지 · 씨줄 AX③ · 날줄 공약6(복지) · 신호 id: morning-20261111-s2</p>\n<p><b>촉</b> 싱가포르 보건부 케네스 막 보건총국장은 11월 9일 '시민 생명구조 정상회의'에서, 병원 밖 심정지 때 곁의 시민이 심폐소생술을 한 비율이 2011년 약 22%에서 2022년 62%로 늘었다고 밝혔습니다. 같은 기간 자동심장충격기(AED) 사용은 1.8%에서 14%로 늘었고, 공공 AED는 1만 대가 넘습니다.</p>\n<p><b>읽기</b> 민방위청 앱 myResponder(2015)는 가까운 심정지 신고를 등록 시민에게 알리고 가장 가까운 AED로 안내합니다. 등록한 시민 응답자는 28만 명을 넘었고, 2026년 8월 말까지 198명을 구했다고 했습니다. 이주노동자 7,000여 명(2021년부터), 체육 자원봉사자 약 500명(2024년부터)에게도 심폐소생술을 가르쳤습니다. 한계: 14%는 2022년 값이며, 연설은 앱·설치가 생존율을 얼마나 높였는지 검증한 연구가 아닙니다. 보건총국장도 \"할 수 있는 일이 훨씬 많다\"고 했습니다.</p>\n<p><b>옮겨 볼 조건</b> 싱가포르의 앱은 응급 출동 체계(민방위청)와 이어져 있습니다. 출동은 119의 몫이고, 구가 함께할 수 있는 몫은 ‘AED가 어디 있는지 알고, 쓸 줄 아는 이웃'을 늘리는 쪽입니다.</p>\n<p><b>침 · 중랑에 적용한다면(편집국 의견)</b> 중랑은 10월 14일 면목역 광장에서 '중랑 건강 동행 운동'을 열어 일곱 개 부스에서 악력 측정·우울 선별검사·심뇌혈관 질환 예방 등을 체험하게 했습니다(10.15 구 발표). 공약6(복지)의 이런 생활 속 체험에 AX③(일상 돌봄)을 곁들이면, 다음 체험 자리에서 주민이 휴대전화 지도로 '우리 집에서 가장 가까운 AED'를 직접 찾아가 보는 코너 하나를 두고, 찾기 어려웠던 곳을 함께 모아 볼 수 있겠습니다. 응급 대응 절차를 새로 정하자는 제안은 아닙니다.</p>\n<p><b>닿는 공약</b> 비전·복지 · 연계 유형 이행방식 개선</p>\n<p><b>원문</b> Ministry of Health Singapore, 「Speech by Professor Kenneth Mak, Director-General of Health, Ministry of Health, at the Citizen Life Saving Summit」, 발표 2026-11-09, <a href=\"https://www.moh.gov.sg/newsroom/speech-by-professor-kenneth-mak--director-general-of-health--ministry-of-health--at-the-citizen-life-saving-summit-/\" target=\"_blank\" rel=\"noopener\">https://www.moh.gov.sg/newsroom/speech-by-professor-kenneth-mak--director-general-of-health--ministry-of-health--at-the-citizen-life-saving-summit-/</a></p>\n<p><b>중랑 실천 근거</b> 중랑구 보도자료(2026-10-15) <a href=\"https://www.jungnang.go.kr/portal/bbs/view/B0000151/168048.do?menuNo=200474\" target=\"_blank\" rel=\"noopener\">https://www.jungnang.go.kr/portal/bbs/view/B0000151/168048.do?menuNo=200474</a> · 중랑브리핑 <a href=\"https://jungnang-briefing.vercel.app/#/a/168048\" target=\"_blank\" rel=\"noopener\">https://jungnang-briefing.vercel.app/#/a/168048</a></p>\n<p><b>두 시선</b></p>\n<p><b>Claude는</b> 이웃을 기계에 잇는 앱, 곧 일상 돌봄(AX③)의 자리에서 읽었습니다.</p>\n<p><b>GPT는</b> 설치 대수를 성과로 끝내지 않고 실제 접근·사용 경험을 살피는 검증과 나눔(AX⑤)의 질문으로 읽었습니다(촉 후보 메모).</p>\n<p><b>함께 남길 질문</b> AED를 '찾아가 본 기록'이 모이면, 그것은 돌봄의 자료일까요, 검증의 자료일까요?</p>\n<h3>셋째 · 국내 정부 원문 — 앞으로 10년 철도 밑그림, 13일까지 국민 의견을 받는다</h3>\n<p class=\"muted\">닿는 공약 · 비전·교통 · 씨줄 AX① · 날줄 공약3(동북권 교통) · 신호 id: morning-20261111-s3</p>\n<p><b>촉</b> 국토교통부는 11월 8일, 제5차 국가철도망 구축계획(2026-2035) 의견수렴 행사를 13일 연다고 밝혔습니다. 온라인 생중계와 사전 설문을 함께 합니다.</p>\n<p><b>읽기</b> 행사는 13일 전문건설회관에서 한국교통연구원 발제, 지방정부 의견 발표, 전문가 토론·국민 의견수렴 순으로 열리고 국토부 유튜브로 생중계합니다. 사전 설문은 8일부터 행사 당일까지 국토부 누리집, 코레일 통합 앱, 주요 철도역 QR코드로 받습니다. 계획 방향으로는 주택 공급에 맞춘 철도망 확충과 병목 구간 개선이 꼽혔습니다(이상 아시아경제 보도). 한계: 연내 발표 예정인 계획의 의견수렴 단계이며, 어떤 노선이 담길지는 정해지지 않았습니다.</p>\n<p><b>옮겨 볼 조건</b> 국가계획은 국토부가 정합니다. 사전 설문은 누구나 낼 수 있어, 주민이 직접 목소리를 보탤 수 있는 짧은 창입니다.</p>\n<p><b>침 · 중랑에 적용한다면(편집국 의견)</b> 중랑은 10월 21일 이웃 6개 자치구와 함께 경원선 용산역-도봉산역 구간을 철도 지하화 대상 노선에 넣어 달라고 공동 건의했습니다(10.22 구 발표). 공약3(교통)의 이 공동 건의 경험을 AX①(주민과 함께)로 넓혀 보면, 13일까지 열린 사전 설문 QR을 주민이 자주 지나는 자리에 함께 안내해, 매일 타는 구간의 이야기가 같은 창에 닿게 해 볼 수 있겠습니다.</p>\n<p><b>닿는 공약</b> 비전·교통 · 연계 유형 이행방식 개선</p>\n<p><b>원문</b> 국토교통부 보도자료 「11월 13일, 제5차 철도망 계획 의견수렴 행사 개최… 온라인 생중계·사전 설문 병행」, 게시 2026-11-08, <a href=\"https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788328\" target=\"_blank\" rel=\"noopener\">https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788328</a> (편집국은 요약·일시만 확인, 본문은 첨부)</p>\n<p><b>교차 확인</b> 아시아경제, 2026-11-08, <a href=\"https://view.asiae.co.kr/article/2026110813570697535\" target=\"_blank\" rel=\"noopener\">https://view.asiae.co.kr/article/2026110813570697535</a></p>\n<p><b>중랑 실천 근거</b> 중랑구 보도자료(2026-10-22) <a href=\"https://www.jungnang.go.kr/portal/bbs/view/B0000151/168143.do?menuNo=200474\" target=\"_blank\" rel=\"noopener\">https://www.jungnang.go.kr/portal/bbs/view/B0000151/168143.do?menuNo=200474</a> · 중랑브리핑 <a href=\"https://jungnang-briefing.vercel.app/#/a/168143\" target=\"_blank\" rel=\"noopener\">https://jungnang-briefing.vercel.app/#/a/168143</a></p>\n<p><b>JUNGNANG Q</b> 이미 갖춘 것이 '필요한 순간, 필요한 사람에게' 쓰이는지, 우리는 무엇으로 알아볼 수 있을까요?</p>\n<p><b>권하는 것 · 피하면 좋은 것</b></p>\n<p><b>권하는 것</b> 새로 들이기 전에, 이미 있는 기계·행사·창구를 주민과 함께 찾아 써 보는 자리를 한 번 마련해 보기. / 피하면 좋은 것: 설치 대수나 참여 건수 하나로만 이야기를 맺는 일.</p>\n<p><b>SIGNAL PROMPT · ROUTE</b></p>\n<p><b>PROMPT</b> \"내가 맡은 시설이나 행사 하나를 골라, 주민이 '필요한 순간에 찾아 쓰기까지' 거치는 단계를 다섯 칸으로 나누고, 칸마다 막힐 수 있는 지점과 함께 확인해 볼 방법을 하나씩 적어 줘.\"</p>\n<p><b>ROUTE</b> s1 KEEP → SOPO·『소상공인이 부리는 AI』 재료(묶음 단위 AI 보조) · s2 NEW → 아궁이('가까운 AED 찾아가 보기' 코너) · s3 WATCH → 13일 의견수렴과 연내 계획 발표 뒤 후속 · 함께 둔 촉: 공정위 배달앱 최혜대우 과징금(잠정, 11.9)·NBER '공용 인프라로서의 AI'(11.9) → SOPO·WEEKLY AX 후보</p>\n<p><b>정정 · 보탬 · 후속</b></p>\n<p>[정정] 제33호 s3(morning-20261110-s3) · 옮겨 볼 조건 \"공모와 평가를 거치는 국비 사업이라\" → \"공모와 평가를 거치는 정부 공모사업이라\" · 왜: 행정안전부 원문(게시 2026-11-09)은 지구당 최대 60억 원이 국비인지 총사업비인지 밝히지 않아, 편집국이 원문과 다시 대조해 고침(GPT 외부고문 사후 확인) · 언제: 2026-11-11 제34호 텍스트판 · 처음 판 보존</p>\n<p>[보탬] 제33호 s3 · 선정 5개 지구의 시군구는 대구 수성구·경기 파주시·충북 음성군·충남 아산시·전북 김제시입니다. 세부 지구명과 재원 분담은 미확인입니다. 침의 \"다음 공모가 열릴 때 출발점이 될 수 있습니다\"는 \"보행 약자의 하루 동선과 불편한 지점을 함께 살펴보는 자료로 삼아 볼 수 있겠습니다\"로 좁혀 읽어 주세요. 공모 활용 여부는 대상·일정·재원 조건을 확인한 뒤 따로 검토할 일입니다. · 근거: 행정안전부, 2026-11-09, <a href=\"https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823\" target=\"_blank\" rel=\"noopener\">https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823</a></p>\n<p>[보탬] 제33호 s1 · DfE 보도문의 “7학년과 9학년 사이 거의 두 배로 늘어 넷 중 하나”는 보도문 인용 그대로입니다. GPT 외부고문이 확인한 2024/25 공식 통계(잦은 결석 = 가능한 수업의 10% 이상 결석)는 7학년 16.77%, 9학년 25.09%로 약 1.5배였고, 보도문의 비교 기준 자료는 밝혀져 있지 않습니다(편집국 미대조). · 근거: DfE 결석 통계 <a href=\"https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25\" target=\"_blank\" rel=\"noopener\">https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25</a></p>\n<p>[보탬] 제33호 s2 · 퀸즐랜드 보조금은 업무 소프트웨어 '또는' 관련 사용 교육 비용을 환급하며, 둘 다 사야 하는 조건은 아닙니다. '도구+교육 한 묶음'은 편집국의 읽기입니다. 직원 19명은 인원수(headcount) 기준이고, GST 등록·퀸즐랜드 본사·지정 건설 업종 요건이 함께 붙습니다. · 근거: Business Queensland <a href=\"https://www.business.qld.gov.au/running-business/support-services/financial/grants/construction\" target=\"_blank\" rel=\"noopener\">https://www.business.qld.gov.au/running-business/support-services/financial/grants/construction</a></p>\n<p><b>미확인</b></p>\n<p>도쿄도 보조금의 총예산과 추가 모집의 이유(원문에 없음).</p>\n<p>싱가포르 myResponder가 생존율에 준 효과(연설은 효과 검증 자료가 아님). AED 사용 14%는 2022년 값입니다.</p>\n<p>국토부 의견수렴 행사의 장소·순서·설문 경로·계획 방향은 교차 보도(아시아경제) 기준이며, 편집국은 원문 첨부를 열지 못했습니다.</p>\n<p>중랑 관내 공공 AED의 수와 위치 정보의 정확도(편집국 미확인).</p>\n<p>중랑 실천 근거 3건은 구청 누리집이 편집국 환경에서 열리지 않아 중랑브리핑 정리(원문 링크 병기)로 확인.</p>\n<p>쓴 곳 Claude 편집국 · 촉 후보 GPT 외부고문 · 사실 확인 GPT(발행 뒤) · 진열 Aside · 결정 발행인 · 편집 마감 04:46 · 발행 04:47 (이미지판: MORNING-SIGNAL-제34호-20261111.png)</p>\n<p></p>\n<p class=\"muted\">침은 편집국 의견이며 행정 결정이 아닙니다. 편집국 직송판(Claude 편집국 → 통합 데스크).</p>",
+  "edition": "편집국 직송판",
+  "desk": "claude",
+  "publishedAt": "2026-11-11T04:44:00+09:00"
+ },
+ {
+  "id": "weekly-20261111",
+  "series": "WEEKLY",
+  "date": "2026.11.11",
+  "title": "스코틀랜드, 빈집을 고쳐 임시거처 가족의 집으로",
+  "topic": "주거·걷기·교육",
+  "desc": "스코틀랜드 빈집 수리(비전·주거), 행안부 생활권 보행환경 정비(비전·걷기), 사람이 먼저 읽는 AI 튜터 실험(비전·교육)을 다시 읽었습니다.",
+  "minute": [
+   "스코틀랜드 빈집 수리(비전·주거), 행안부 생활권 보행환경 정비(비전·걷기), 사람이 먼저 읽는 AI 튜터 실험(비전·교육)을 다시 읽었습니다.",
+   "중간집·동행길 점검·방정환교육지원센터처럼 중랑이 이미 하는 일에서 출발해, 작은 실험 세 가지를 건넵니다(편집국 의견).",
+   "함께 생각해 볼 것: 우리 곁에 이미 있는 집·길·배움터를, 누가 먼저 알아보고 누구에게 이어 줄까요?"
+  ],
+  "pledges": [
+   "비전·주거",
+   "비전·걷기",
+   "비전·교육"
+  ],
+  "weave": [
+   "AX③×공약4",
+   "AX①×공약7",
+   "AX⑤×공약1"
+  ],
+  "signals": [
+   {
+    "id": "s1",
+    "title": "스코틀랜드, 빈집을 고쳐 임시거처 가족의 집으로",
+    "pledge": "비전·주거",
+    "ax": "AX③",
+    "link_type": "보완 제안",
+    "src_type": "해외 정부",
+    "url": "https://www.gov.scot/news/boost-for-empty-homes-fund/",
+    "published": "2026-10-29"
+   },
+   {
+    "id": "s2",
+    "title": "걷는 길을 거리째 다시 짓는 3년 사업, 5곳이 뽑혔다",
+    "pledge": "비전·걷기",
+    "ax": "AX①",
+    "link_type": "이행방식 개선",
+    "src_type": "국내 정부 원문",
+    "url": "https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=130823",
+    "published": "2026-11-09"
+   },
+   {
+    "id": "s3",
+    "title": "AI 튜터 답장, 사람이 먼저 읽자 교정은 전문가 수준",
+    "pledge": "비전·교육",
+    "ax": "AX⑤",
+    "link_type": "이행방식 개선",
+    "src_type": "해외 연구",
+    "url": "https://services.google.com/fh/files/misc/learnlm_oct26.pdf",
+    "published": "2026-10-29"
+   }
+  ],
+  "versions": [],
+  "images": [
+   "https://jungnang-media.vercel.app/data/weekly-20261111.webp"
+  ],
+  "body": "<h2>JUNGNANG WEEKLY SIGNAL</h2>\n<p>중랑정책미디어 창간 특집 · 이번 주 침 · 2026년 11월 11일 창간</p>\n<p>제6호 · Vol.6 · 2026.11.11 수요일</p>\n<p>JUNGNANG WEEKLY SIGNAL · 제6호 · Vol.6 · 2026.11.11(수) · 중랑정책미디어 창간 특집 · 이번 주 침</p>\n<p><b>1분 읽기</b></p>\n<p>· 스코틀랜드 빈집 수리(비전·주거), 행안부 생활권 보행환경 정비(비전·걷기), 사람이 먼저 읽는 AI 튜터 실험(비전·교육)을 다시 읽었습니다.</p>\n<p>· 중간집·동행길 점검·방정환교육지원센터처럼 중랑이 이미 하는 일에서 출발해, 작은 실험 세 가지를 건넵니다(편집국 의견).</p>\n<p>· 함께 생각해 볼 것: 우리 곁에 이미 있는 집·길·배움터를, 누가 먼저 알아보고 누구에게 이어 줄까요?</p>\n<p><b>창간 특집 · 이번 주 침을 고른 방법</b></p>\n<p>예비호 ①~⑨(10/29~11/10 MORNING) 스물일곱 개 촉 가운데, 지면 ROUTE에서 '이번 주 침' 후보로 건넨 신호(제30호 s1, 제33호 s3)와 실험 설계가 분명한 신호(제29호 s2)를 날줄(공약4·7·1)을 따라 골랐습니다. 오늘 MORNING 창간호(공약5·6·3)와 사례·교차점이 겹치지 않게 했습니다. 각 침은 [밖의 사례 → 왜 의미 있나 → 중랑에서 해 볼 만한 작은 실험 → 국장회의에서 함께 볼 질문] 순서입니다.</p>\n<h3>머리 · 해외 정부 — 스코틀랜드, 빈집을 고쳐 임시거처 가족의 집으로</h3>\n<p class=\"muted\">닿는 공약 · 비전·주거 · 씨줄 AX③ · 날줄 공약4(주거환경) · 신호 id: weekly-20261111-s1</p>\n<p><b>부제</b> 빈집 수리비 보조에 70만 파운드 더해 올해 200만 파운드, 10개 지방정부가 소유주와 함께</p>\n<p><b>촉(밖의 사례)</b> 스코틀랜드 정부는 10월 29일 빈집을 다시 쓰게 하는 수리비 보조에 70만 파운드를 더한다고 밝혔습니다. 10개 지방정부가 나눠 받아 소유주 대상 보조 제도를 새로 만들거나 넓히고, 고친 집은 저렴주택이나 임시거처로 씁니다. 올해 빈집 투자는 200만 파운드가 됩니다. 소머빌 사회정의·주택 장관이 글래스고의 스코틀랜드 빈집 파트너십 총회에서 발표했습니다.</p>\n<p><b>읽기(왜 의미 있나)</b> 빈집 정책과 임시거처 정책을 한 줄로 이었습니다. 장관은 이 돈이 \"가구를 임시거처에서 안정된 영구 거처로 옮기는 데 도움이 될 수 있다\"고 했고, 보도는 임시거처 생활이 길어지면 아이들의 안정에 영향을 준다고 덧붙였습니다. 증거: 빈집 파트너십 집계로 2025-26년 2,285호가 다시 쓰였고(역대 최다, 전년 2,066호), 2010년 이후 1만 5천 호가 넘습니다. 한계: 예산 배정 단계이며, 몇 호가 임시거처 가구에 돌아갈지와 10개 지방정부의 이름은 발표 범위 밖입니다.</p>\n<p><b>옮겨 볼 조건</b> 수리비 보조는 소유주의 동의와 '일정 기간 저렴하게 빌려준다'는 약속이 짝입니다. 서울의 빈집은 정비 대기나 소유 관계가 얽힌 경우가 많아, 옮겨 볼 것은 기금 규모보다 '고친 뒤 누가 머무는가'를 처음부터 함께 적는 설계입니다.</p>\n<p><b>MORNING 제30호에서 더한 것</b> 중랑의 '잠시 머무는 집' 경험과 짝을 짓고, 소유 관계라는 조건 차이를 실험 설계에 넣었습니다.</p>\n<p>침 · 중랑에서 해 볼 만한 작은 실험(편집국 의견): 중랑은 병원에서 퇴원한 어르신이 최대 두 달 머물며 회복하는 '안심 중간집'을 운영하고, 집으로 돌아간 뒤에는 '중랑 동행 이웃잇기'로 1:1 이웃을 이어 왔습니다(9월 말 669건 결연, 10.20 구 발표). 공약4(주거환경)와 이 '잠시 머문 뒤 집으로' 경험을 AX③(일상 돌봄)으로 엮어 보면, 한 동에서 오래 비어 있는 집 몇 곳의 정보와 머물 곳이 필요한 가구의 수(개인을 알아볼 수 없는 집계)를 한 장에 나란히 놓고, '고친다면 누가 머물 수 있을까'를 주거·돌봄 담당이 함께 적어 볼 수 있겠습니다. 소유주 동의·개인정보 범위·예산은 검토 전의 제안입니다.</p>\n<p><b>국장회의에서 함께 볼 질문</b> 빈집 한 채를 '정비 대상'이 아니라 '누군가 머물 집'으로 볼 때, 주거와 돌봄 가운데 어느 쪽 자료를 먼저 펼쳐 보면 좋을까요?</p>\n<p><b>도착 칸</b> 고친 집에 실제로 누가 들어가 살게 되었는지(스코틀랜드도 공개 전). 실험을 한다면 '들어간 가구 수'보다 먼저 이 칸을 둡니다.</p>\n<p><b>닿는 공약</b> 비전·주거 · 연계 유형 보완 제안</p>\n<p><b>원문</b> Scottish Government, 「Boost for empty homes fund」, 발표 2026-10-29, <a href=\"https://www.gov.scot/news/boost-for-empty-homes-fund/\" target=\"_blank\" rel=\"noopener\">https://www.gov.scot/news/boost-for-empty-homes-fund/</a> (본문은 편집국 환경에서 열리지 않음)</p>\n<p><b>교차 확인</b> LocalGov, 2026-11-03, <a href=\"https://www.localgov.co.uk/700k-boost-to-bring-Scotlands-empty-homes-back-into-use/65180\" target=\"_blank\" rel=\"noopener\">https://www.localgov.co.uk/700k-boost-to-bring-Scotlands-empty-homes-back-into-use/65180</a> · Planning Geek, 2026-10-29, <a href=\"https://www.planninggeek.co.uk/2026/empty-homes-funding-scotland/\" target=\"_blank\" rel=\"noopener\">https://www.planninggeek.co.uk/2026/empty-homes-funding-scotland/</a> (전년 2,066호, 편집국 대조)</p>\n<p><b>중랑 실천 근거</b> 중랑구 보도자료(2026-10-20) <a href=\"https://www.jungnang.go.kr/portal/bbs/view/B0000151/168090.do?menuNo=200474\" target=\"_blank\" rel=\"noopener\">https://www.jungnang.go.kr/portal/bbs/view/B0000151/168090.do?menuNo=200474</a> · 중랑브리핑 <a href=\"https://jungnang-briefing.vercel.app/#/a/168090\" target=\"_blank\" rel=\"noopener\">https://jungnang-briefing.vercel.app/#/a/168090</a></p>\n<p><b>다르게 볼 수도 있는 점</b> 중간집은 회복을 위한 짧은 머묾이고 빈집 재사용은 집 자체를 늘리는 일이라 결이 다릅니다. 두 경험을 잇는 것은 '머문 뒤 어디로 가는가'를 함께 본다는 점에서만입니다.</p>\n<h3>둘째 · 국내 정부 원문 — 걷는 길을 거리째 다시 짓는 3년 사업, 5곳이 뽑혔다</h3>\n<p class=\"muted\">닿는 공약 · 비전·걷기 · 씨줄 AX① · 날줄 공약7(걷기 좋은 도시) · 신호 id: weekly-20261111-s2</p>\n<p><b>부제</b> 행안부 생활권 보행환경 종합정비, 18개 지구 신청 → 현장실사·발표평가 → 5곳</p>\n<p><b>촉(밖의 사례)</b> 행정안전부는 11월 9일, 11개 시·도 18개 지구가 신청한 ‘2027년 생활권 보행환경 종합정비사업'에서 서면심사를 통과한 11개 지구를 현장실사·발표평가해 5개 지구를 골랐습니다. 선정 시군구는 대구 수성구·경기 파주시·충북 음성군·충남 아산시·전북 김제시입니다. 2027~2029년 3년 동안 지구당 최대 60억 원을 투입할 계획이며, 보행안전시설 확충·전선 지중화·가로환경 개선을 함께 추진합니다.</p>\n<p><b>읽기(왜 의미 있나)</b> 보도 한 구간이 아니라 거리 전체를 3년에 걸쳐 한 번에 다시 짓는 방식이고, 현장실사와 발표평가로 뽑습니다. 김광용 재난안전관리본부장은 \"주민들이 일상에서 이용하는 거리를 더욱 안전하고 걷기 좋은 거리로 만드는 사업\"이라고 했습니다. 한계: 60억 원이 국비인지 총사업비인지, 세부 지구명과 평가 기준은 편집국이 첨부 원문을 열지 못해 확인하지 못했습니다.</p>\n<p><b>옮겨 볼 조건</b> 공모와 평가를 거치는 정부 공모사업입니다. 거리 단위 정비는 주민이 실제로 걷는 동선과 불편한 지점의 기록이 함께 있을 때 설명이 쉬워집니다.</p>\n<p><b>MORNING 제33호에서 더한 것</b> 선정 5개 시군구(GPT 외부고문 사후 확인, MORNING 제34호 보탬)와, 주민이 함께 걸으며 적은 중랑의 기록을 짝지었습니다.</p>\n<p>침 · 중랑에서 해 볼 만한 작은 실험(편집국 의견): 중랑은 10월 12일 공원 직원과 영원한 기억봉사단 등 20명이 망우산에서 용마산까지 중랑동행길을 걸으며 안내표지판·휴게시설·안전시설의 불편을 적었고, 바로 고칠 것은 먼저, 예산이 드는 것은 단계적으로 고치기로 했습니다(10.13 구 발표). 공약7(걷기)의 이 '함께 걸으며 적기'를 AX①(주민과 함께)으로 넓혀 보면, 동네 골목 한 곳에서 어르신·유모차·휠체어 이용 주민이 걸으며 휴대전화로 사진과 한 줄 메모를 남기는 '걷기 기록의 날'을 한 번 열어 볼 수 있겠습니다. 모인 기록은 보행 약자의 하루 동선을 함께 살펴보는 자료가 되고, 공모 활용 여부는 대상·일정·재원 조건을 확인한 뒤 따로 검토할 일입니다.</p>\n<p><b>국장회의에서 함께 볼 질문</b> 주민이 남긴 '걷기 불편 한 줄'은 어느 자리에 모이고, 누가 다시 읽으면 좋을까요?</p>\n<p><b>정정 칸</b> 남긴 기록이 어떻게 다뤄졌는지 주민이 다시 볼 수 있는 자리(동행길 점검의 '바로 고칠 것' 목록이 좋은 출발점).</p>\n<p><b>닿는 공약</b> 비전·걷기 · 연계 유형 이행방식 개선</p>\n<p><b>원문</b> 행정안전부 보도자료, 게시 2026-11-09, <a href=\"https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823\" target=\"_blank\" rel=\"noopener\">https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823</a> · 정책브리핑 <a href=\"https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788444\" target=\"_blank\" rel=\"noopener\">https://www.korea.kr/briefing/pressReleaseView.do?newsId=156788444</a></p>\n<p><b>중랑 실천 근거</b> 중랑구 보도자료(2026-10-13) <a href=\"https://www.jungnang.go.kr/portal/bbs/view/B0000151/168011.do?menuNo=200474\" target=\"_blank\" rel=\"noopener\">https://www.jungnang.go.kr/portal/bbs/view/B0000151/168011.do?menuNo=200474</a> · 중랑브리핑 <a href=\"https://jungnang-briefing.vercel.app/#/a/168011\" target=\"_blank\" rel=\"noopener\">https://jungnang-briefing.vercel.app/#/a/168011</a></p>\n<p><b>다르게 볼 수도 있는 점</b> 정부 공모는 지역마다 조건이 달라, 기록을 모으는 일 자체가 주민에게 '곧 고쳐진다'는 기대로 읽힐 수 있습니다. 기록의 날에는 무엇을 언제 알려 드릴지를 함께 약속하는 편이 좋겠습니다.</p>\n<h3>셋째 · 해외 연구 — AI 튜터 답장, 사람이 먼저 읽자 교정은 전문가 수준</h3>\n<p class=\"muted\">닿는 공약 · 비전·교육 · 씨줄 AX⑤ · 날줄 공약1(교육) · 신호 id: weekly-20261111-s3</p>\n<p><b>부제</b> 영국 중학생 1,179명 무작위 실험… 다만 표준시험 점수 차이는 뚜렷하지 않았다</p>\n<p><b>촉(밖의 사례)</b> 구글 LearnLM팀과 영국 교육기업 Eedi는 10월 29일, 영국 공립 중등학교 10곳 12~15세 학생 1,179명을 대상으로 한 무작위 실험(2026.4.13~7.7, 약 10주) 결과를 공개했습니다. AI 튜터의 답장 초안은 별도로 모집한 경력 수학교육자 58명(전문 튜터)이 먼저 읽고 학생에게 보냈습니다.</p>\n<p><b>읽기(왜 의미 있나)</b> 틀린 문제를 바로 다음 문제에서 고친 비율은 AI 튜터 56.5~56.9%, 전문가 튜터 57.7%, 기존 보충학습 43.4%였습니다. 전문 튜터는 AI 초안 94,385건을 검토해 94.7%를 고치지 않고 보냈습니다. 단일 초안 감사에서 찾은 6건(수학 4·어조 2)은 학생에게 가지 않았고, 대화 맥락까지 본 별도 감사에서는 학생에게 전달된 AI 대화의 수학 오류가 7건(0.01%)이었습니다. 한계: 외부 표준시험(Star Maths)에서는 어느 방식도 기존 보충학습과 뚜렷한 차이가 없었습니다. 기간이 짧고 개발사 자체 보고서이며 상세 부록은 공개 전입니다.</p>\n<p><b>옮겨 볼 조건</b> '사람이 먼저 읽는' 시간이 드는 설계이고, '바로 고친 비율'과 '몇 주 뒤 실력'을 처음부터 나눠 재야 효과를 과장하지 않습니다.</p>\n<p><b>MORNING 제29호에서 더한 것</b> 검토 주체(전문 튜터)와 감사 결과를 정정판 기준으로 바로 쓰고, 표준시험 결과를 부제에 올려 기대치를 함께 맞췄습니다.</p>\n<p>침 · 중랑에서 해 볼 만한 작은 실험(편집국 의견): 중랑은 방정환교육지원센터에서 자기주도학습·진로 프로그램을 운영해 왔습니다. 공약1(교육)의 이 배움터를 AX⑤(검증과 나눔)로 이어 보면, 언젠가 AI 학습 도움을 들일 때를 대비해 '사람이 먼저 읽는 데 든 시간 · 바로 고친 비율 · 한 달 뒤 혼자 다시 풀기'를 나란히 적는 기록표 한 장을 학습 상담 선생님들과 미리 함께 그려 볼 수 있겠습니다. 도입을 전제로 한 제안은 아닙니다.</p>\n<p><b>국장회의에서 함께 볼 질문</b> AI를 들인 효과를 말할 때, 우리는 '바로 나아진 것'과 '오래 남은 것' 가운데 무엇을 먼저 재고 싶을까요?</p>\n<p><b>책임 칸</b> 기록표를 끝까지 들고 갈 자리(학습 상담과 AI 담당이 함께 맡는 방식)를 처음에 정해 두기.</p>\n<p><b>닿는 공약</b> 비전·교육 · 연계 유형 이행방식 개선</p>\n<p><b>원문</b> Google LearnLM Team·Eedi, 「Measuring the impact of AI tutoring, from near transfer to standardised tests: An expanded RCT in UK mathematics classrooms」, 발표 2026-10-29, <a href=\"https://services.google.com/fh/files/misc/learnlm_oct26.pdf\" target=\"_blank\" rel=\"noopener\">https://services.google.com/fh/files/misc/learnlm_oct26.pdf</a></p>\n<p><b>중랑 실천 근거</b> 방정환교육지원센터 <a href=\"https://educenter.jungnang.go.kr/contents/about_greeting.php\" target=\"_blank\" rel=\"noopener\">https://educenter.jungnang.go.kr/contents/about_greeting.php</a> (편집국 11/2 확인)</p>\n<p><b>다르게 볼 수도 있는 점</b> 단기 교정률이 사람 수준이어도 표준시험 차이가 뚜렷하지 않았다는 결과는, AI 튜터를 '학력 향상 도구'로 기대하기보다 '사람의 손이 닿는 시간을 넓히는 도구'로 읽게 합니다.</p>\n<p><b>JUNGNANG Q</b> 우리 곁에 이미 있는 집·길·배움터를 주민과 함께 다시 볼 때, 가장 먼저 물어볼 사람은 누구일까요?</p>\n<p><b>권하는 것 · 피하면 좋은 것</b></p>\n<p><b>권하는 것</b> 새 사업을 더하기 전에, 이미 운영하는 집·길·배움터에서 '다음에 누가 쓰게 될까'를 주민과 한 줄 적어 보기. / 피하면 좋은 것: 고친 집, 정비한 길, 바로 고친 문제의 수 하나로 이야기를 서둘러 맺는 일.</p>\n<p><b>SIGNAL PROMPT · ROUTE</b></p>\n<p><b>PROMPT</b> \"내가 맡은 사업에서 지금 덜 쓰이는 공간이나 기록 하나를 골라, 그것이 주민의 하루에 닿기까지 필요한 사람·자료·약속을 세 칸으로 정리해 줘.\"</p>\n<p><b>ROUTE</b> s1 KEEP → 아궁이('머물 사람' 한 장) · s2 WATCH → 다음 공모 공고와 평가 기준 · s3 KEEP → 아궁이(사람 확인 기록표) · 다음 후보: GPT 촉 '쉬었음' 청년(보사연, 11.9) → 다음 '이번 주 침'</p>\n<p><b>두 시선</b></p>\n<p><b>Claude는</b> 창간 특집의 셋째 침으로 퀸즐랜드 소규모 업체 도구·교육 환급(제33호 s2)을 먼저 골랐다가, 오늘 MORNING 창간호의 도쿄도 '묶음' 보조금과 결이 겹쳐 AI 튜터 실험으로 바꿨습니다(내부 고문 의견 반영).</p>\n<p><b>GPT는</b> 11월 10일 사후 의견에서 '한 걸음 더하면'이 모든 침에 반복되면 기존 사업을 한꺼번에 진단하는 말처럼 읽힐 수 있다고 했습니다. 이번 호는 '엮어 보면·넓혀 보면·이어 보면'으로 나눠 썼습니다.</p>\n<p><b>정정 · 보탬 · 후속</b></p>\n<p>[후속] 제33호 s3(morning-20261110-s3) · 무엇이 이어졌나: 행안부 선정 5개 시군구를 확인해 이번 호 s2에 담았습니다 · 근거: 행정안전부, 2026-11-09, <a href=\"https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823\" target=\"_blank\" rel=\"noopener\">https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&amp;nttId=130823</a> · 침의 행방: 건넴(부서 확인 전)</p>\n<p>[후속] 제30호 s1(morning-20261105-s1) · 무엇이 이어졌나: ROUTE에서 건넨 공약4 의제 후보를 이번 호 머리로 다시 읽었습니다(새 사실 보탬: 전년 2,066호) · 근거: Planning Geek, 2026-10-29, <a href=\"https://www.planninggeek.co.uk/2026/empty-homes-funding-scotland/\" target=\"_blank\" rel=\"noopener\">https://www.planninggeek.co.uk/2026/empty-homes-funding-scotland/</a></p>\n<p><b>미확인</b></p>\n<p>스코틀랜드 정부 보도자료 본문(편집국 환경에서 열리지 않아 LocalGov·Planning Geek로 대조), 보조를 받는 10개 지방정부의 이름.</p>\n<p>행안부 지구당 최대 60억 원의 국비·총사업비 구분, 세부 지구명·평가 기준(첨부 원문 미열람).</p>\n<p>LearnLM·Eedi 보고서 상세 부록(공개 전).</p>\n<p>중랑 실천 근거 168090·168011은 구청 누리집이 편집국 환경에서 열리지 않아 중랑브리핑 정리(원문 링크 병기)로 확인. 동행길 점검 의견의 처리 상황.</p>\n<p>쓴 곳 Claude 편집국 · 촉 후보 GPT 외부고문 · 사실 확인 GPT(발행 뒤) · 진열 Aside · 결정 발행인 · 편집 마감 05:55</p>\n<p class=\"muted\">침은 편집국 의견이며 행정 결정이 아닙니다. 편집국 직송판(Claude 편집국 → 통합 데스크).</p>",
+  "edition": "편집국 직송판",
+  "desk": "claude",
+  "publishedAt": "2026-11-11T05:56:00+09:00"
+ },
+ {
   "id": "morning-20261104",
   "series": "MORNING",
   "date": "2026.11.04",
