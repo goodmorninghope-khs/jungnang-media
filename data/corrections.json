@@ -143,6 +143,72 @@
    "when": "2026-11-04 정정판(사이트)",
    "prev_version_link": "#/read/morning-20261104",
    "source": "발행인 승인 2026-11-04 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261110",
+   "kind": "정정",
+   "what": "제33호 s3(morning-20261110-s3)",
+   "how": "옮겨 볼 조건 \"공모와 평가를 거치는 국비 사업이라\" → \"공모와 평가를 거치는 정부 공모사업이라\"",
+   "why": "왜: 행정안전부 원문(게시 2026-11-09)은 지구당 최대 60억 원이 국비인지 총사업비인지 밝히지 않아, 편집국이 원문과 다시 대조해 고침(GPT 외부고문 사후 확인) · 처음 판 보존",
+   "when": "2026-11-11 제34호 텍스트판",
+   "prev_version_link": "#/read/morning-20261110",
+   "source": "morning-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261110",
+   "kind": "보탬",
+   "what": "제33호 s3",
+   "how": "선정 5개 지구의 시군구는 대구 수성구·경기 파주시·충북 음성군·충남 아산시·전북 김제시입니다. 세부 지구명과 재원 분담은 미확인입니다. 침의 \"다음 공모가 열릴 때 출발점이 될 수 있습니다\"는 \"보행 약자의 하루 동선과 불편한 지점을 함께 살펴보는 자료로 삼아 볼 수 있겠습니다\"로 좁혀 읽어 주세요. 공모 활용 여부는 대상·일정·재원 조건을 확인한 뒤 따로 검토할 일입니다.",
+   "why": "근거: 행정안전부, 2026-11-09, https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=130823",
+   "when": "2026-11-11 MORNING 제34호 텍스트판",
+   "prev_version_link": "#/read/morning-20261110",
+   "source": "morning-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261110",
+   "kind": "보탬",
+   "what": "제33호 s1",
+   "how": "DfE 보도문의 “7학년과 9학년 사이 거의 두 배로 늘어 넷 중 하나”는 보도문 인용 그대로입니다. GPT 외부고문이 확인한 2024/25 공식 통계(잦은 결석 = 가능한 수업의 10% 이상 결석)는 7학년 16.77%, 9학년 25.09%로 약 1.5배였고, 보도문의 비교 기준 자료는 밝혀져 있지 않습니다(편집국 미대조).",
+   "why": "근거: DfE 결석 통계 https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25",
+   "when": "2026-11-11 MORNING 제34호 텍스트판",
+   "prev_version_link": "#/read/morning-20261110",
+   "source": "morning-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261110",
+   "kind": "보탬",
+   "what": "제33호 s2",
+   "how": "퀸즐랜드 보조금은 업무 소프트웨어 '또는' 관련 사용 교육 비용을 환급하며, 둘 다 사야 하는 조건은 아닙니다. '도구+교육 한 묶음'은 편집국의 읽기입니다. 직원 19명은 인원수(headcount) 기준이고, GST 등록·퀸즐랜드 본사·지정 건설 업종 요건이 함께 붙습니다.",
+   "why": "근거: Business Queensland https://www.business.qld.gov.au/running-business/support-services/financial/grants/construction",
+   "when": "2026-11-11 MORNING 제34호 텍스트판",
+   "prev_version_link": "#/read/morning-20261110",
+   "source": "morning-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261110",
+   "kind": "후속",
+   "what": "제33호 s3(morning-20261110-s3)",
+   "how": "무엇이 이어졌나: 행안부 선정 5개 시군구를 확인해 이번 호 s2에 담았습니다",
+   "why": "근거: 행정안전부, 2026-11-09, https://mois.go.kr/frt/bbs/type010/commonSelectBoardArticle.do?bbsId=BBSMSTR_000000000008&nttId=130823 · 침의 행방: 건넴(부서 확인 전)",
+   "when": "2026-11-11 WEEKLY 제6호 텍스트판",
+   "prev_version_link": "#/read/morning-20261110",
+   "source": "weekly-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-11",
+   "edition_id": "morning-20261105",
+   "kind": "후속",
+   "what": "제30호 s1(morning-20261105-s1)",
+   "how": "무엇이 이어졌나: ROUTE에서 건넨 공약4 의제 후보를 이번 호 머리로 다시 읽었습니다(새 사실 보탬: 전년 2,066호)",
+   "why": "근거: Planning Geek, 2026-10-29, https://www.planninggeek.co.uk/2026/empty-homes-funding-scotland/",
+   "when": "2026-11-11 WEEKLY 제6호 텍스트판",
+   "prev_version_link": "#/read/morning-20261105",
+   "source": "weekly-20261111 텍스트판 · Aside 진열"
   }
  ]
 }
