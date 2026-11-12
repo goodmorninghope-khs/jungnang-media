@@ -209,6 +209,105 @@
    "when": "2026-11-11 WEEKLY 제6호 텍스트판",
    "prev_version_link": "#/read/drive-10-l35zQLTIuZOUXmk00rYnROUqIO2b3NxkfTgDNCblU",
    "source": "weekly-20261111 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261112",
+   "kind": "정정",
+   "what": "제35호 s1(morning-20261112-s1)",
+   "how": "\"수수료 면제는 98.4%까지 이미 쓰고 있었습니다.\" → “Bill 7 사업에 붙는 수수료는 이미 98.4%가 면제되고 있어, 수수료로 더 줄일 여지는 거의 없었습니다.” · 처음 판 보존",
+   "why": "왜: UHERO 원문(“98.4% of all fees waived for Bill 7 projects”)과 다시 대조해 고침. 분모는 보고서도 밝히지 않음",
+   "when": "2026-11-12 04:47 정정판",
+   "prev_version_link": "#/read/morning-20261112",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261112",
+   "kind": "정정",
+   "what": "제35호 s2(morning-20261112-s2)",
+   "how": "\"찾아드림 서비스는 이번에 시작해 결과가 나오기 전이며\" → \"찾아드림 서비스는 새로 도입한다고 밝힌 단계로 시작일은 원문에 없고, 결과가 나오기 전이며\" · 처음 판 보존",
+   "why": "왜: 기후에너지환경부 원문(2026-11-10)과 다시 대조해 고침",
+   "when": "2026-11-12 04:47 정정판",
+   "prev_version_link": "#/read/morning-20261112",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261112",
+   "kind": "정정",
+   "what": "제35호 s3(morning-20261112-s3)",
+   "how": "\"옥스퍼드 스트리트 일대는 하루 평균 약 29만 명이 찾고\" → \"옥스퍼드 스트리트 일대는 통제 첫 주에 하루 평균 약 29만 명이 찾았고(작년보다 9% 증가)\" · 처음 판 보존",
+   "why": "왜: 런던시장실 원문(2026-11-09)상 첫 주 수치임",
+   "when": "2026-11-12 04:47 정정판",
+   "prev_version_link": "#/read/morning-20261112",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261112",
+   "kind": "보탬",
+   "what": "제35호 s1·s2·s3",
+   "how": "Bill 7은 2030년 종료 예정 한시 제도(s1 옮겨 볼 조건) / 찾아드림 대상 정의와 침의 질문을 대상에 맞게(\"이사하신 뒤 난방비 바우처가 끊기지는 않았나요\")(s2) / 방문·보행량의 '첫 주' 기간이 하루 다름, 전선 정비는 차량 통제와 달라 기대치를 낮춰 읽기(s3)",
+   "why": "근거: 각 신호 원문",
+   "when": "2026-11-12 MORNING 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261112",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261111",
+   "kind": "정정",
+   "what": "제34호 s1(morning-20261111-s1)",
+   "how": "\"한계: 이제 모집을 연 사업이라 성과 자료가 나오기 전이고, 총예산은 원문에 없습니다.\" → \"한계: 이번 추가 모집의 성과는 편집국이 확인하지 못했습니다. 공식 사업 안내에는 이전 연도 선정 사례(2025년 시부야 1건, 2024년 2건)가 실려 있고, 총예산은 원문에 없습니다.\" · 처음 판 보존",
+   "why": "왜: 도쿄도 산업노동국 사업 안내(https://www.sangyo-rodo.metro.tokyo.lg.jp/tourism/kakusyu/advanced-tech/)를 편집국이 다시 열어 대조해 고침(GPT 외부고문 사후 확인)",
+   "when": "2026-11-12 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261111",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261111",
+   "kind": "정정",
+   "what": "제34호 s3(morning-20261111-s3)",
+   "how": "원문 자료명 「11월 13일, 제5차 철도망 계획 의견수렴 행사 개최… 온라인 생중계·사전 설문 병행」 → 「새로운 대한민국의 내일을 잇는 철도 대전환, 국민과 함께 그립니다」 · 처음 판 보존",
+   "why": "왜: 정책브리핑 원문 제목을 편집국이 다시 열어 대조함. 앞의 것은 편집국이 붙인 설명형 제목이었음(GPT 외부고문 사후 확인)",
+   "when": "2026-11-12 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261111",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261111",
+   "kind": "보탬",
+   "what": "제34호 s1",
+   "how": "지역 그룹은 도내 사업자 2곳 이상과 함께 적격 지역 핵심사업자 1곳 이상 요건을 갖춰야 하고, 행사 자체를 주사업으로 하는 사업은 제외되며 지역에서 계속 쓰는 기반은 별도로 검토됩니다. '비용의 절반은 그룹이 부담'은 '보조대상 경비의 최소 절반과 비대상 경비는 그룹 부담'으로 읽어 주세요. 중랑 제안은 이 제도의 직접 적용이나 지원 가능성을 뜻하지 않습니다.",
+   "why": "왜: 조건과 범위 보탬 · 근거: 도쿄도 제2회 모집요강 pp.1-3·9-11(GPT 외부고문 대조, 편집국 미대조) https://www.sangyo-rodo.metro.tokyo.lg.jp/documents/d/sangyo-rodo/2026-11-04-094314-933",
+   "when": "2026-11-12 MORNING 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261111",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261111",
+   "kind": "보탬",
+   "what": "제34호 s2",
+   "how": "28만 명은 2015년 이후 등록한 시민 응답자 수(실제 출동자 수가 아님), 198명은 2026년 8월 말까지의 누계이며, 공공 AED 1만 대와 사용률 14%(2022년 값)는 분모가 다른 숫자입니다.",
+   "why": "근거: 싱가포르 보건부 연설 원문(편집국 재대조) https://www.moh.gov.sg/newsroom/speech-by-professor-kenneth-mak--director-general-of-health--ministry-of-health--at-the-citizen-life-saving-summit-/",
+   "when": "2026-11-12 MORNING 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261111",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
+  },
+  {
+   "date": "2026-11-12",
+   "edition_id": "morning-20261111",
+   "kind": "보탬",
+   "what": "제34호 s3",
+   "how": "행사 순서(한국교통연구원 발제 → 지방정부 핵심사업 → 전문가 토론)와 사전 설문 경로(국토부 누리집·통합앱 코레일+·주요 철도역 QR)는 KDI 경제정보센터 공식 전재 요약으로도 확인됐고, 사전 설문은 인천시 안내 기준 11월 13일 15시까지입니다. 계획 방향 원문 문장과 동북권 언급 여부는 여전히 미대조입니다. · 인천시 안내 https://www.incheon.go.kr/traffic/TR060101/view?nttNo=2046344 (GPT 외부고문 확인, 편집국 미대조)",
+   "why": "근거: KDI 경제정보센터 https://eiec.kdi.re.kr/policy/materialView.do?num=289224",
+   "when": "2026-11-12 MORNING 제35호 텍스트판",
+   "prev_version_link": "#/read/morning-20261111",
+   "source": "morning-20261112 텍스트판 · Aside 진열"
   }
  ]
 }
